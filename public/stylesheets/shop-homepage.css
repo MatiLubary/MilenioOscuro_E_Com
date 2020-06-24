@@ -1,0 +1,66 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+body {
+  padding-top: 80px
+}
+
+
+@media (min-width: 992px) {
+.col-lg-9 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-top: 15px;  
+  } 
+}
+
+
+@media (min-width: 1200px) {
+.navbar-dark {
+  line-height: 2.5;
+  padding: 0rem 1rem;
+}
+}
+
+
+.nav-item {
+  padding-top: 3%;
+  text-align: center;
+}
+
+@media (max-width: 320px) {
+.smallerText {
+  font-size: 0.8rem;
+}
+}
+
+#shopping-cart-red: #DF0000;
+
+.fa-stack[data-count]:after{
+  position:absolute;
+  right:0%;
+  top:0%;
+  content: attr(data-count);
+  font-size:40%;
+  padding:.6em;
+  border-radius:999px;
+  line-height:.75em;
+  color: white;
+  color:$shopping-cart-red;
+  text-align:center;
+  min-width:2em;
+  font-weight:bold;
+  background: white;
+  border-style:solid;
+}
+
+.red-cart {
+	color: #DF0000; 
+}
+
+.fa-stack-2x {
+  font-size: 1em;
+  padding-top: 14px;
+}
