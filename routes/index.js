@@ -8,3 +8,4 @@ const controllerIdex = require('../Controllers/ControllersIdex')
 router.get('/', controllerIdex.home )
 
 module.exports = router;
+  
