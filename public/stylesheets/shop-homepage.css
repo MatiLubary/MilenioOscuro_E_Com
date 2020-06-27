@@ -36,7 +36,9 @@ body {
 }
 }
 
-#shopping-cart-red: #DF0000;
+#shopping-cart-red{
+  color: #DF0000;
+};
 
 .fa-stack[data-count]:after{
   position:absolute;
@@ -48,7 +50,6 @@ body {
   border-radius:999px;
   line-height:.75em;
   color: white;
-  color:$shopping-cart-red;
   text-align:center;
   min-width:2em;
   font-weight:bold;
@@ -64,3 +65,45 @@ body {
   font-size: 1em;
   padding-top: 14px;
 }
+
+/* Footer */
+
+.marg-top {
+  margin-top: 1.4rem;
+}
+
+.pt-3r{
+  padding-top: 3rem;
+}
+
+.line-h-sm {
+  line-height: .5rem;
+}
+
+.marg-sides{
+  margin-left:1rem;
+  margin-right: 1rem;
+}
+
+.mg-tb-2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 425px) {
+.d-noneCel{
+  display: none;
+}
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1000px;
+  }
+}
+
+
+.footer_full_width { 
+  width: 100%;
+  max-width: 1560px;
+ }
