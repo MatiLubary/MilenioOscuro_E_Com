@@ -9,4 +9,6 @@ router.get('/', function(req, res, next) {
 
 router.get('/login', userControllers.login)
 
+router.get('/register', userControllers.register)
+
 module.exports = router;
