@@ -2,6 +2,8 @@ body {
     margin : 0; 
     padding: 0;
     box-sizing: border-box;
+    font-family: Lato,sans-serif;
+   
 }
 
 
@@ -19,7 +21,7 @@ body {
 }
 
 .navek {
-    color: black;
+    color: #bbb;
     padding: 3px 5px;
 
 }
@@ -29,7 +31,8 @@ body {
 }
 
 span {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Lato,sans-serif;
+    font-weight: normal;
 }
 
  #menuTablet {
@@ -38,7 +41,9 @@ span {
 
 /*  ------------------------------------- FOOTER-------------------------------*/
 
-
+#mailOferta {
+    width: 75%;
+}
 
 
 
