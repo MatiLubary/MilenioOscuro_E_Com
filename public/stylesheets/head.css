@@ -1,0 +1,155 @@
+body {
+    margin : 0; 
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Lato,sans-serif;
+   
+}
+
+
+
+.fa-user:before {
+  
+    font-size: 24px;
+    margin-right: 14px;
+}
+
+.fa-shopping-cart:before {
+    
+    font-size: 24px;
+    margin-right: 14px;
+}
+
+.navek {
+    color: #bbb;
+    padding: 3px 5px;
+
+}
+
+#desplegable {
+    display: none;
+}
+
+span {
+    font-family: Lato,sans-serif;
+    font-weight: normal;
+}
+
+ #menuTablet {
+    display: none  ;
+} 
+
+/*  ------------------------------------- FOOTER-------------------------------*/
+
+#mailOferta {
+    width: 75%;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 480px){
+
+    #esconderNav {
+        display: none;
+    }
+
+    #desplegable {
+        display: unset;
+        font-size: 28px;
+    }
+
+    #esconderCarrito {
+       
+        display: none !important;
+
+    }
+
+    #logo {
+        height: 81%;
+        width: 108%;
+        padding-left: 5px;
+    }
+
+    #colDelLogo {
+        padding: 0
+    }
+
+    #search {
+        height: 30px;
+    }
+
+    #anchoSearch{
+        width: 34px;
+
+    }
+
+    #colSearch {
+        padding-right: 5px;
+    }
+
+/* #menuTablet {
+    display: none !important;
+} */
+
+
+
+}
+
+@media (max-width: 768px){
+
+
+
+
+
+    #esconderNav {
+        display: none;
+    }
+
+    span {
+        display: none;
+    }
+
+    #colDelLogo {
+
+   /*  padding-left: 15px; */
+    padding-right: 0;
+    }
+
+    #colSearch {
+        height: 43px
+    }
+
+
+    #search{
+        height: 29px;
+    }
+
+    #anchoSearch {
+        height: 29px;
+    }
+
+    #esconderCarrito {
+        padding-right: 15px;
+        padding-left: 0;
+
+    }
+
+    .fa-shopping-cart:before {
+        font-size: 24px;
+        margin-right: 14px;
+}
+
+.fa-user:before {
+    font-size: 24px;
+    margin-right: 14px;
+}
+
+
+
+}

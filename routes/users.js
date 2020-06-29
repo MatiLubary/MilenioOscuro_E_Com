@@ -4,7 +4,7 @@ const userControllers = require ('../Controllers/userControllers')
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.send("hola")
 });
 
 router.get('/login', userControllers.login)
