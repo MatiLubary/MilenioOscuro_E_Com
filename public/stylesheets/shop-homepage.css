@@ -90,6 +90,25 @@ body {
   margin-bottom: 2rem;
 }
 
+@media (max-width: 768px) {
+.ft-small{
+  font-size: .8rem;
+}
+}
+
+@media (max-width: 1024px) {
+.marg-sides-1024 {
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+}
+
+@media (max-width: 768px) {
+  .d-noneTab{
+    display: none;
+  }
+  }
+
 @media (max-width: 425px) {
 .d-noneCel{
   display: none;
