@@ -7,8 +7,12 @@ router.get('/', function(req, res, next) {
   res.send("hola")
 });
 
-router.get('/login', userControllers.login)
+router.get('/login', userControllers.login);
 
-router.get('/register', userControllers.register)
+router.get('/register', userControllers.register);
+
+//router.post('/register', userControllers.create);
+
+
 
 module.exports = router;

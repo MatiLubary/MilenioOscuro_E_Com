@@ -8,29 +8,27 @@
   <title>Login - Milenio Oscuro</title>
 </head>
 <body>
-  <div class="container"> 
-    <div class="row">
-      <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Direccion de Email</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <small id="emailHelp" class="form-text text-muted">Nunca compartiremos tu informacion con nadie.</small>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Contraseña</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Recordarme</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Ingresar</button>
+  <%- include('./partials/headerPrueba') %>
+  <div class="login-page">
+    <div class="form">
+      <form class="register-form">
+        <input type="text" placeholder="name"/>
+        <input type="password" placeholder="password"/>
+        <input type="text" placeholder="email address"/>
+        <button>create</button>
+        <p class="message">Already registered? <a href="#">Sign In</a></p>
+      </form>
+      <form class="login-form">
+        <input type="text" placeholder="direccion de email/email address"/>
+        <input type="password" placeholder="contraseña/password"/>
+        <button>Ingresar</button>
+        <p class="message">No esta registrado? <a href="register.ejs">Cree una cuenta</a></p>
       </form>
     </div>
-   </div>
+  </div>
 
 
-
+  <%- include('./partials/footerPrueba') %>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
