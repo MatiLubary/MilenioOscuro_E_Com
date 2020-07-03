@@ -3,6 +3,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: Lato,sans-serif;
+    background-color: #eee;
    
 }
 
@@ -35,17 +36,29 @@ span {
     font-weight: normal;
 }
 
- #menuTablet {
-    display: none  ;
-} 
+@media (min-width: 1024px){
 
+ #menuTablet {
+    display: none !important  ;
+} 
+}
 /*  ------------------------------------- FOOTER-------------------------------*/
 
 #mailOferta {
     width: 75%;
 }
 
+[class^="flaticon-"]:before,
+[class*=" flaticon-"]:before,
+[class^="flaticon-"]:after,
+[class*=" flaticon-"]:after {
+    font-size: 24px;
 
+}
+
+.flaticon-facebook:before {
+    margin-left: 10px;
+}
 
 
 

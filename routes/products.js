@@ -6,4 +6,6 @@ const controllersProducts = require('../Controllers/controllersProducts')
 
 router.get('/detail' , controllersProducts.detail)
 
+router.get('/alta' , controllersProducts.alta)
+
 module.exports = router
