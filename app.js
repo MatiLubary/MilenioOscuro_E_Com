@@ -25,7 +25,7 @@ app.use(methodOverride("_method"));
 app.use('/', indexRouter);
 app.use('/products' , productsRouter)
 app.use('/users', usersRouter);
-app.use(session({secret: "secreto"}));
+app.use(session({secret: "secreto" ,saveUninitialized: true,resave: false}));
 
 
 // catch 404 and forward to error handler

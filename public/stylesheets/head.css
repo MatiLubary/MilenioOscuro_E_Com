@@ -83,6 +83,10 @@ span {
 
     }
 
+    .carousel-indicators{
+        display: none;
+    }
+
     #logo {
         height: 81%;
         width: 108%;
@@ -112,11 +116,13 @@ span {
 
 
 
+
 }
 
 @media (max-width: 768px){
 
 
+   
 
 
 
@@ -166,3 +172,61 @@ span {
 
 
 }
+
+
+/*-------------------------------MENU DESPLEGABLE---------------------------------------------*/
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  background-color: #222;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #bbb;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #222;
+  color: #bbb;
+ 
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #222;
+}
+
+#main {
+  transition: margin-left .5s;
+ 
+  display: flex;
+  justify-content: flex-end;
+}
+ 

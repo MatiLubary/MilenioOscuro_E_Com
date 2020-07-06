@@ -10,7 +10,7 @@
   <div class="card mt-5 " style="max-width: 100%; border-radius: 0 !important; /* box-shadow: 1px 1px 6px grey */">
     <div class="row no-gutters">
       <div class="col-md-8">
-        <img src="/images/batman_omnibus.jpg" class="card-img" style="width: 72%; height: 90%; margin-left: 12%;"
+        <img id="imagenDelProducto" src="/images/products/<%= producto.image %> " class="card-img" style="width: 72%; height: 90%; margin-left: 12%;"
           alt="...">
         <div>
           <h3 style="font-size: 17px;" class="mx-5 py-4"> </h3>
@@ -21,10 +21,10 @@
       </div>
       <div style="border-left: rgb(219, 217, 217) 1px solid; " class="col-md-4">
         <div class="card-body">
-          <h1 style="font-size: 30px; " class="card-title pt-2"> Batman the golden age volumen 1 - Omnibus </h1>
+          <h1 style="font-size: 30px; " class="card-title pt-2"> <%= producto.name %> </h1>
 
           <!--  <span style="font-size: 16px;" class="text-success " ><strike>$ </strike> /  OFF</span> -->
-          <h1 style="font-size: 35px;" class="card-title py-2 rem2"> <b>$450 </b></h1>
+          <h1 style="font-size: 35px;" class="card-title py-2 rem2"> <b> <%= producto.price %> </b></h1>
 
 
 
@@ -98,9 +98,9 @@
 
   <div class="card mb-5" style="max-width: 100%; border-radius: 0 !important; border-top: 0;">
     <div class="row no-gutters">
-      <div class="col-md-12" style="border-top: 0; padding: 17px">
+      <div class="col-md-12" style="border-top: 0; padding: 30px">
         <h3>Descripcion</h3>
-       Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus deserunt maiores delectus quae aliquid eaque facere beatae vero, itaque quos cupiditate corrupti inventore recusandae. Distinctio dicta molestiae magni sequi. Earum debitis at error assumenda deserunt odio? Eaque exercitationem laborum nemo id accusamus tenetur possimus aliquid, sed sequi at maxime facilis similique voluptas voluptates reiciendis ipsum quidem officia est ipsa. Et quae magnam laboriosam cumque, ullam molestias voluptatem sapiente quasi ut est enim, voluptate porro totam! Hic, dolores deleniti? Impedit, libero quia. Animi culpa soluta beatae cumque molestiae saepe nobis. Rem quo cumque asperiores ex consequuntur adipisci deserunt ducimus qui aperiam.
+      <%= producto.description %> 
       
       </div>
       
