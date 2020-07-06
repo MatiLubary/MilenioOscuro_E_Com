@@ -11,7 +11,7 @@ router.get('/login', userControllers.login);
 
 router.get('/register', userControllers.register);
 
-//router.post('/register', userControllers.create);
+router.post('/register', userControllers.create);
 
 
 

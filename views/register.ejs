@@ -8,6 +8,7 @@
 </head>
 <body>
   <%- include('./partials/headerPrueba') %>
+<<<<<<< HEAD
 
   
   <div class="login-page">
@@ -20,8 +21,21 @@
         <button>Registrarse</button>
         <p class="message">Ya registrado? <a href="login">Log in Page</a></p>
       </form>
+=======
+  <form action="/users/Register" method="POST" id="form">
+    <div class="login-page">
+      <div class="form">
+        <form class="login-form">
+          <input type="text" name="name" placeholder="nombre/name"/>
+          <input type="text" name="email" placeholder="direccion de email/email address"/>
+          <input type="password" name="password" placeholder="contraseña/password"/>
+          <button type="submit">Registrarse</button>
+          <p class="message">Ya registrado? <a href="login">Log in Page</a></p>
+        </form>
+      </div>
+>>>>>>> 864826ad562804a3831e059aa2cc55b0fb983923
     </div>
-  </div>
+  </form>
 
   <%- include('./partials/footerPrueba') %>
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
