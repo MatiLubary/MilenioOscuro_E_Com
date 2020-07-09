@@ -1,0 +1,58 @@
+<%- include('../partials/headerPrueba') %>
+
+<div class="container py-5 mt-4" style="background-color: white; border: rgb(219, 217, 217) 1px solid;;">
+
+<form action="/products/alta" method="POST" enctype="multipart/form-data">
+    <div class="form-row">
+      <div class="form-group col-md-9">
+        <label for="inputEmail4">Nombre del producto</label>
+        <input type="text" class="form-control" id="inputEmail4" name="name">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="inputPassword4">Precio del producto:</label>
+        <input type="text" class="form-control" id="inputPassword4" name="price">
+      </div>
+    </div>
+    <div class="form-row">
+    <div class="form-group col-md-6 ">
+      <label for="inputState">Categoria</label>
+      <select id="inputState" class="form-control" name="category">
+        <option selected>Seleccione la categoria</option>
+        <option value="video_juegos">Video juegos</option>
+        <option value="comics">Comics</option>
+        <option value="juegos_de_mesa">Juego de mesa</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputCity" style="padding-left: 8px">Imagen del producto</label>
+     <!--  <input type="file" class="form-control-file" id="exampleFormControlFile1" style="padding-top: 3px;padding-left: 5px;"> -->
+      <input type="file" class="form-control-file"  name="image" style="padding-top: 3px;padding-left: 5px; " >
+    </div>
+   
+  </div>
+   
+  <!--  <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">City</label>
+        <input type="text" class="form-control" id="inputCity">
+      </div>
+        <div class="form-group col-md-6">
+        <label for="inputCity" style="padding-left: 8px">Imagen del producto</label>
+         <input type="file" class="form-control-file" id="exampleFormControlFile1" style="padding-top: 3px;padding-left: 5px;"> -->
+    <!-- <input type="file" class="form-control-file"  name="image" style="padding-top: 3px;padding-left: 5px; " >
+      </div>  -->
+  <!--     <-- </div> --> 
+      
+      
+    <div class="form-group">
+      <label for="inputAddress2">Descripción</label>
+      <input type="text " class="form-control" id="inputAddress2"  name="description"  >
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </form>
+
+</div>
+
+<%- include('../partials/footerPrueba') %>
