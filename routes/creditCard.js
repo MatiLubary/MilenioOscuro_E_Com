@@ -3,7 +3,9 @@ var router = express.Router();
 const creditCardController = require('../Controllers/creditCardControllers')
 
 
-router.get ('/credit', creditCardController.credit)
+router.get ('/creditCard', creditCardController.credit)
 
+
+router.get ('/resumen', creditCardController.resumen)
 
 module.exports = router;

@@ -8,6 +8,7 @@ var methodOverride = require ('method-override');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products')
+var creditCardRouter = require('./routes/creditCard');
 var app = express();
 const session = require ('express-session');
 
@@ -22,9 +23,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride("_method"));
 
+
 app.use('/', indexRouter);
 app.use('/products' , productsRouter)
 app.use('/users', usersRouter);
+app.use('/payment', creditCardRouter);
 app.use(session({secret: "secreto" ,saveUninitialized: true,resave: false}));
 
 

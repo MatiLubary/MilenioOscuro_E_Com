@@ -11,8 +11,15 @@ creditCardControllers = {
         
         
         res.render('payment')
-   
+   },
+
+
+    resumen : function (req,res,){
+
+           res.render('paymentReceipt')
     }
+
+
 }
 
 
