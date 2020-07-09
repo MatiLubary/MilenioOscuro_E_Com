@@ -12,9 +12,8 @@ let prodsJuegosDeMesa = products.filter (product => product.category == 'juegosD
 
 controllerIndex = {
 
-    home : function(req, res, next) {
+      home : function(req, res, next) {
       
-
         res.render('index', {products: products})
       },
 
