@@ -18,7 +18,7 @@ userControllers = {
             email: req.body.email,
             password: req.body.password
         }
-        let archivoUser = fs.readFileSync('data/users.json', {
+        let archivoUser = fs.readFileSync('src/data/users.json', {
             encoding: 'utf-8'
         });
         let users;
@@ -30,7 +30,7 @@ userControllers = {
 
         users.push(user);
         usersJson = JSON.stringify(users);
-        fs.writeFileSync('data/users.json', usersJson);
+        fs.writeFileSync('src/data/users.json', usersJson);
         res.redirect('/')
     }
 }
