@@ -8,6 +8,15 @@ body {
 }
 
 
+.prodImg {
+  width: 358px;
+  height: 358px;
+}
+
+.bannerImg {
+  width: 1400px;
+  height: 450px;
+}
 
 
 @media (min-width: 992px) {
