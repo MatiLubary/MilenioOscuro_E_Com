@@ -18,6 +18,16 @@
           <button type="submit">Registrarse</button>
           <p class="message">Ya registrado? <a href="login">Log in Page</a></p>
         </form>
+        <br>
+        <% if (typeof errors != 'undefined') { %>
+          <ul>
+            <% for(let i=0; i < errors.length; i++) { %>
+                  <li> 
+                    <%=errors[i].msg%>
+                  </li>
+            <% } %>
+          </ul>
+        <% } %>
       </div>
     </div>
   </form>

@@ -9,6 +9,41 @@ userControllers = {
 
         res.render('users/login')
     },
+    processLogin: function (req, res, next) {
+        let errors = (validationResult(req));
+        
+        if (errors.isEmpty()){
+            let archivoUser = fs.readFileSync('src/data/users.json', {
+                encoding: 'utf-8'
+            });
+            let users;
+            if (archivoUser == "") {
+                users = [];
+            } else {
+                users = JSON.parse(archivoUser);
+            }
+            for (let i=0; i < users.length; i++) {
+                if (users[i].email == req.body.email) {
+                    if (req.body.password == users[i].password) {
+                        let userToLog = users[i];
+                        break;
+                
+                    }
+                }
+            }
+            if (userToLog == undefined){
+                return res.render ('users/login', {errors:[{msg:'invalid credentials'}
+                ]});   
+            }
+            
+            req.session.userLoged = userToLog;
+            res.redirect('users/profile');
+
+        } else {
+            return res.render ('users/login', {errors:errors.errors})
+        }
+        },    
+
     register: function (req, res, next) {
 
 
@@ -16,7 +51,7 @@ userControllers = {
     },
     create: function (req, res, next) {
         let errors = (validationResult(req));
-        console.log(errors);
+        
         if (errors.isEmpty()){
             let user = {
                 name: req.body.name,
