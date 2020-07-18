@@ -1,17 +1,42 @@
 let fs = require('fs');
 let {check, validationResult, body} = require ('express-validator');
 const { log } = require('console');
-const users = require("../data/users.json")
+const archivoUsuario = require('../data/users.json')
 
 userControllers = {
 
     login: function (req, res, next) {
 
 
-        res.render('users/login')
+        res.render('users/login' , {usuario : req.session.usuario})
     },
     processLogin: function (req, res, next) {
-/*         let errors = (validationResult(req));
+
+
+     
+ let usuarioEncontrado =  archivoUsuario.find(function(usuario){
+      return usuario.email == req.body.email && usuario.password == req.body.password
+  })
+
+  if( usuarioEncontrado){
+      req.session.usuario = usuarioEncontrado
+
+      if (req.body.recordame != undefined){
+
+        res.cookie('recordame', 
+        usuarioEncontrado.email, { maxAge: 60000 })
+
+    }
+
+      res.redirect("/")
+  } else {
+ res.redirect("/users/login")
+  }
+
+
+
+
+       /*  let errors = (validationResult(req));
         
         if (errors.isEmpty()){ */
            /*  let archivoUser = fs.readFileSync('src/data/users.json', {
@@ -37,15 +62,18 @@ userControllers = {
                 ]});   
             }
             
-            req.session.userLoged = userToLog;
-            res.redirect('users/profile'); */
+           /*  req.session.userLoged = userToLog; */
+          /*   res.redirect('users/profile');
 
-        },    
+        } else {
+            return res.render ('users/login', {errors:errors.errors})
+        } */
+        }  ,  
 
     register: function (req, res, next) {
 
 
-        res.render('users/register')
+        res.render('users/register' ,{usuario : req.session.usuario})
     },
     create: function (req, res, next) {
         let errors = (validationResult(req));

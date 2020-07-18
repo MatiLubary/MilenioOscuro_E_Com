@@ -10,13 +10,13 @@ creditCardControllers = {
     credit: function (req, res, ) {
 
 
-        res.render('creditCard/payment')
+        res.render('creditCard/payment' , {usuario : req.session.usuario})
     },
 
 
     resumen: function (req, res, ) {
 
-        res.render('creditCard/paymentReceipt')
+        res.render('creditCard/paymentReceipt' , {usuario : req.session.usuario})
     }
 
 

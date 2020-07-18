@@ -24,4 +24,6 @@ router.get('/alta' , controllersProducts.alta)
 
 router.post('/alta' , upload.any() ,  controllersProducts.dadoDeAlta)
 
+
+
 module.exports = router

@@ -18,18 +18,17 @@ constrollersProducts = {
 
 
 
-
                 console.log(productosDetalle)
 
-                res.render('products/productsDetail', {
-                        producto: productosDetalle
-                })
+                res.render('products/productsDetail', {  producto: productosDetalle , usuario : req.session.usuario})
 
         },
 
         alta: function (req, res) {
 
-                res.render('products/productsAlta')
+                req.session.usuario = "juan"
+
+                res.render('products/productsAlta' , {usuario : req.session.usuario})
         },
 
         dadoDeAlta: function (req, res, next) {
@@ -55,6 +54,15 @@ constrollersProducts = {
 
                 res.send("see")
         }
+
+
+
+     
+                
+        
+
+
+        
 
 
 }
