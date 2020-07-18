@@ -1,6 +1,7 @@
 let fs = require('fs');
 let {check, validationResult, body} = require ('express-validator');
 const { log } = require('console');
+const users = require("../data/users.json")
 
 userControllers = {
 
@@ -10,10 +11,10 @@ userControllers = {
         res.render('users/login')
     },
     processLogin: function (req, res, next) {
-        let errors = (validationResult(req));
+/*         let errors = (validationResult(req));
         
-        if (errors.isEmpty()){
-            let archivoUser = fs.readFileSync('src/data/users.json', {
+        if (errors.isEmpty()){ */
+           /*  let archivoUser = fs.readFileSync('src/data/users.json', {
                 encoding: 'utf-8'
             });
             let users;
@@ -37,11 +38,8 @@ userControllers = {
             }
             
             req.session.userLoged = userToLog;
-            res.redirect('users/profile');
+            res.redirect('users/profile'); */
 
-        } else {
-            return res.render ('users/login', {errors:errors.errors})
-        }
         },    
 
     register: function (req, res, next) {
