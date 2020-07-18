@@ -15,31 +15,30 @@ controllerIndex = {
   home: function (req, res, next) {
 
     res.render('index', {
-      products: products
+      products: products,usuario : req.session.usuario
     })
   },
 
   catA: function (req, res, next) {
 
     res.render('index/videoJuegos', {
-      prodsVideoJuegos
-    })
+      prodsVideoJuegos, usuario : req.session.usuario})
   },
 
   catB: function (req, res, next) {
     res.render('index/comics', {
-      prodsComics
+      prodsComics, usuario : req.session.usuario
     })
   },
 
   catC: function (req, res, next) {
     res.render('index/juegosDeMesa', {
-      prodsJuegosDeMesa
+      prodsJuegosDeMesa , usuario : req.session.usuario
     })
   },
 
   cart: function (req, res, next) {
-    res.render('index/cart')
+    res.render('index/cart' , {usuario : req.session.usuario})
   }
 
 }

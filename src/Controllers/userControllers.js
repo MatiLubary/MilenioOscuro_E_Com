@@ -5,12 +5,14 @@ userControllers = {
     login: function (req, res, next) {
 
 
-        res.render('users/login')
+        res.render('users/login' , {usuario : req.session.usuario})
     },
+
+
     register: function (req, res, next) {
 
 
-        res.render('users/register')
+        res.render('users/register' ,{usuario : req.session.usuario})
     },
     create: function (req, res, next) {
         let user = {

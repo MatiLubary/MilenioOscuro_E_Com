@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
 const creditCardController = require('../Controllers/creditCardControllers')
+const middlewareAcceso = require('../middleware/accesoUsuarios')
+
+router.get ('/creditCard', middlewareAcceso, creditCardController.credit)
 
 
-router.get ('/creditCard', creditCardController.credit)
-
-
-router.get ('/resumen', creditCardController.resumen)
+router.get ('/resumen', middlewareAcceso ,  creditCardController.resumen)
 
 module.exports = router;
