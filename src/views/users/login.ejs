@@ -12,14 +12,25 @@
 
 <body>
   <%- include('../partials/headerPrueba') %>
-  <div class="login-page">
-    <div class="form">
+  <form action="/users/login" method="POST" id="form">
+    <div class="login-page">
+     <div class="form">
       <form class="login-form">
-        <input type="text" placeholder="direccion de email/email address" />
-        <input type="password" placeholder="contraseña/password" />
-        <button>Ingresar</button>
+        <input type="text" name="email" placeholder="direccion de email/email address"/>
+        <input type="password" name="password" placeholder="contraseña/password"/>
+        <button type="submit">Ingresar</button>
         <p class="message">No esta registrado? <a href="register">Cree una cuenta</a></p>
       </form>
+      <br>
+        <% if (typeof errors != 'undefined') { %>
+          <ul>
+            <% for(let i=0; i < errors.length; i++) { %>
+                  <li> 
+                    <%=errors[i].msg%>
+                  </li>
+            <% } %>
+          </ul>
+        <% } %>
     </div>
   </div>
 
