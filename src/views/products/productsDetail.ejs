@@ -1,0 +1,123 @@
+<%- include('../partials/headerPrueba') %>
+
+
+
+
+
+
+<div class="container ">
+
+  <div class="card mt-5 " style="max-width: 100%; border-radius: 0 !important; /* box-shadow: 1px 1px 6px grey */">
+    <div class="row no-gutters">
+      <div class="col-md-8">
+        <img id="imagenDelProducto" src="/images/<%= producto.image %> " class="card-img" style="width: 72%; height: 90%; margin-left: 12%;"
+          alt="...">
+        <div>
+          <h3 style="font-size: 17px;" class="mx-5 py-4"> </h3>
+     
+
+
+        </div>
+      </div>
+      <div style="border-left: rgb(219, 217, 217) 1px solid; " class="col-md-4">
+        <div class="card-body">
+          <h1 style="font-size: 30px; " class="card-title pt-2"> <%= producto.name %> </h1>
+
+          <!--  <span style="font-size: 16px;" class="text-success " ><strike>$ </strike> /  OFF</span> -->
+          <h1 style="font-size: 35px;" class="card-title py-2 rem2"> <b> <%= producto.price %> </b></h1>
+
+
+
+          <!--  <h1 style="font-size: 50px;"  class="card-title py-4 rem2">$</h1> -->
+
+
+          <div class="py-3" style="border: rgb(219, 217, 217) 1px solid;">
+            <p class="d-flex justify-content pl-2"><b> Paga con todos los medios</b></p>
+            <div class="d-flex justify-content pl-2">
+              <img class="mx-1" width="15%" height="25%"
+                src="https://d3lfzbr90tctqz.cloudfront.net/epi/resource/r/d/c57287e3c97689e9598fe6b80a45f67bfa1ab24c881d2bb6e07664783f358d3d"
+                alt="">
+              <img class="mx-1" width="15%" height="25%"
+                src="https://d3lfzbr90tctqz.cloudfront.net/epi/resource/r/d/2b02baec5de45de28b27c2d1f23ff6a242ebe947dc2a98f75ba23a855e81920f"
+                alt="">
+              <img class="mx-1" width="15%" height="25%"
+                src="https://d3lfzbr90tctqz.cloudfront.net/epi/resource/r/d/f36da9316ef09bf88849bb98ab8916e55c09d3afcf1f5bae00167069e2c82e56"
+                alt="">
+              <img class="mx-1" width="15%" height="25%"
+                src="https://d3lfzbr90tctqz.cloudfront.net/epi/resource/r/d/fecb5357708d4c28143fbb1ba2ad0701ce1c6b9eb99b1eb13ee84fc9b6cd9645"
+                alt="">
+            </div>
+          <!--   <div class=" pl-2 mt-4 ">
+            <label  for="">Cantidad</label>
+
+            <select  name="" id="">
+              <option value="1">1</option>
+              <option value="1">1</option>
+              <option value="1">1</option>
+              <option value="1">1</option>
+            </select>
+          </div> -->
+
+
+
+            <p style="font-size: 16px;" class="card-text pt-5 d-flex justify-content  align-items-center pl-2 "> <i
+                class="fas fa-shipping-fast pr-2 text-success"> </i> Consultar envios a domicilio</p>
+            <p style="font-size: 16px;" class="card-text pt-2 d-flex justify-content  align-items-center pl-2 "> <i
+                class="fas fa-store pr-2 text-success"> </i> Retiro gratis en nuestro local</p>
+          </div>
+
+
+          <!-- <p style="font-size: 16px;"  class="card-text pb-5 pt-3"> <img width="10%" height="20%" src="https://d3lfzbr90tctqz.cloudfront.net/epi/resource/r/d/c57287e3c97689e9598fe6b80a45f67bfa1ab24c881d2bb6e07664783f358d3d" alt="">  Paga en 12 cuotas sin interes</p> -->
+          <!-- <p style="font-size: 16px;" class="card-text pb-5 pt-3"> <i class="fas fa-store pr-3 text-success"></i>   Retiro gratis en locales del vendedor</p> -->
+          <a href="/payment/creditCard"><button style="width: 100%; font-size:22px; border-radius: 6px; " type="button"
+            class="btn btn-primary mt-5">Comprar</button></a>
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+<div class="container ">
+
+  <div class="card mb-5" style="max-width: 100%; border-radius: 0 !important; border-top: 0;">
+    <div class="row no-gutters">
+      <div class="col-md-12" style="border-top: 0; padding: 30px">
+        <h3>Descripcion</h3>
+      <%= producto.description %> 
+      
+      </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+   
+
+
+
+
+
+
+
+
+
+<%- include('../partials/footerPrueba') %>
