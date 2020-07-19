@@ -15,14 +15,18 @@ userControllers = {
 
      
  let usuarioEncontrado =  archivoUsuario.find(function(usuario){
-      return usuario.email == req.body.email && usuario.password == req.body.password
+     return usuario.email == req.body.email && usuario.password == req.body.password
+      
   })
+
+  
 
   if( usuarioEncontrado){
       req.session.usuario = usuarioEncontrado
       res.redirect("/")
   } else {
- res.redirect("/users/login")
+ res.render ('users/login', {errors:[{msg:'invalid credentials'}], usuario : req.session.usuario }
+                );   
   }
 
 
@@ -93,7 +97,7 @@ userControllers = {
             res.redirect('/')
         } 
         else {
-            return res.render ('users/register', {errors:errors.errors})
+            return res.render ('users/register', {errors:errors.errors , usuario : req.session.usuario})
         }    
     },
     profile: function (req, res, next) {
