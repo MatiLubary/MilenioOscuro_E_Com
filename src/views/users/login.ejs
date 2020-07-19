@@ -22,7 +22,7 @@
         <p class="message">No esta registrado? <a href="register">Cree una cuenta</a></p>
       </form>
       <br>
-        <% if (typeof errors != 'undefined') { %>
+        <% if (typeof user != 'undefined') { %>
           <ul>
             <% for(let i=0; i < errors.length; i++) { %>
                   <li> 

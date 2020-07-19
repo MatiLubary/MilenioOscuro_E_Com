@@ -26,7 +26,7 @@ constrollersProducts = {
 
         alta: function (req, res) {
 
-                req.session.usuario = "juan"
+               
 
                 res.render('products/productsAlta' , {usuario : req.session.usuario})
         },

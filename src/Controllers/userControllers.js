@@ -10,22 +10,24 @@ userControllers = {
 
         res.render('users/login' , {usuario : req.session.usuario})
     },
+
     processLogin: function (req, res, next) {
 
 
-     
  let usuarioEncontrado =  archivoUsuario.find(function(usuario){
       return usuario.email == req.body.email && usuario.password == req.body.password
   })
 
+ /* bcrypt.compareSync(req.body.password , usuario.password) */
+
   if( usuarioEncontrado){
       req.session.usuario = usuarioEncontrado
       res.redirect("/")
-  } else {
- res.redirect("/users/login")
-  }
+  } 
 
 
+  
+},
 
 
        /*  let errors = (validationResult(req));
@@ -60,7 +62,7 @@ userControllers = {
         } else {
             return res.render ('users/login', {errors:errors.errors})
         } */
-        }  ,  
+            
 
     register: function (req, res, next) {
 
@@ -93,7 +95,7 @@ userControllers = {
             res.redirect('/')
         } 
         else {
-            return res.render ('users/register', {errors:errors.errors})
+            return res.render ('users/register', {errors:errors.errors , usuario : req.session.usuario})
         }    
     },
     profile: function (req, res, next) {
