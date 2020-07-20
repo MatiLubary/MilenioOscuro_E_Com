@@ -5,15 +5,53 @@ body { margin-top:20px; }
 
 
 
-
 .paymentWrap {
 	padding: 50px;
+	
 }
 
 .paymentWrap .paymentBtnGroup {
-	max-width: 800px;
+	
+
+	width: auto;
+	padding: 8% 0 0;
 	margin: auto;
 }
+
+
+
+.container{
+	margin: auto;
+	margin-top: 50px;
+	width: auto;
+	height: auto;
+	
+	
+}
+
+.paymentCont{
+	margin: auto;
+	margin-top: 40px;
+	float: right;
+	
+	
+}
+	
+.glyphicon-glyphicon-chevron-right{
+	float: right;
+}
+
+.detail{ 
+	margin: auto;
+	margin-top: 20px;
+	
+}
+
+
+.pull-right{
+float: right;
+}
+
 
 .paymentWrap .paymentBtnGroup .paymentMethod {
 	padding: 40px;

@@ -1,3 +1,18 @@
 body {
     margin-top: 20px;
+    
+}
+.container{
+    margin: auto;
+	margin-top: 50px;
+	width: auto;
+	height: auto;
+	
+}
+.well{
+    margin: auto;
+	
+	width: auto;
+	height: auto;
+	
 }
