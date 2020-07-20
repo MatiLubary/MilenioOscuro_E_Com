@@ -67,7 +67,6 @@ span {
 
 
 
-
 @media (max-width: 480px){
 
     #esconderNav {
@@ -189,6 +188,7 @@ span {
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
+  
 }
 
 .sidebar a {
@@ -198,6 +198,7 @@ span {
   color: #bbb;
   display: block;
   transition: 0.3s;
+  font-size: medium;
 }
 
 .sidebar a:hover {
