@@ -3,6 +3,8 @@ let {check, validationResult, body} = require ('express-validator');
 const { log } = require('console');
 const archivoUsuario = require('../data/users.json')
 
+const bcrypt = require('bcrypt');
+
 userControllers = {
 
     login: function (req, res, next) {
@@ -15,13 +17,23 @@ userControllers = {
 
 
  let usuarioEncontrado =  archivoUsuario.find(function(usuario){
-      return usuario.email == req.body.email && usuario.password == req.body.password
+      if (usuario.email == req.body.email && bcrypt.compareSync(req.body.password , usuario.password)){
+          return usuario
+      }
   })
 
  /* bcrypt.compareSync(req.body.password , usuario.password) */
 
   if( usuarioEncontrado){
       req.session.usuario = usuarioEncontrado
+
+      if (req.body.recordame != undefined){
+
+        res.cookie('recordame', 
+        usuarioEncontrado.email, { maxAge: 60000 })
+
+    }
+
       res.redirect("/")
   } 
 
@@ -32,8 +44,8 @@ userControllers = {
 
        /*  let errors = (validationResult(req));
         
-        if (errors.isEmpty()){
-            let archivoUser = fs.readFileSync('src/data/users.json', {
+        if (errors.isEmpty()){ */
+           /*  let archivoUser = fs.readFileSync('src/data/users.json', {
                 encoding: 'utf-8'
             });
             let users;
@@ -70,13 +82,14 @@ userControllers = {
         res.render('users/register' ,{usuario : req.session.usuario})
     },
     create: function (req, res, next) {
+        let password = bcrypt.hashSync(req.body.password, 10);
         let errors = (validationResult(req));
         
         if (errors.isEmpty()){
             let user = {
                 name: req.body.name,
                 email: req.body.email,
-                password: req.body.password
+                password
             }
             let archivoUser = fs.readFileSync('src/data/users.json', {
                 encoding: 'utf-8'

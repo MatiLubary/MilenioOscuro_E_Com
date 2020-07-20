@@ -13,6 +13,8 @@ var creditCardRouter = require('./routes/creditCard');
 var app = express();
 
 
+var recordameMiddleware = require("./middleware/recordameMiddleware")
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -24,6 +26,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(methodOverride("_method"));
 app.use(session({secret: 'mensaje oculto',saveUninitialized: true,resave: false}))
+
+app.use(recordameMiddleware)
 
 app.use('/', indexRouter);
 app.use('/products' , productsRouter)
