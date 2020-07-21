@@ -17,14 +17,9 @@ userControllers = {
 
      
  let usuarioEncontrado =  archivoUsuario.find(function(usuario){
-<<<<<<< HEAD
-     return usuario.email == req.body.email && usuario.password == req.body.password
-      
-=======
       if (usuario.email == req.body.email && bcrypt.compareSync(req.body.password , usuario.password)){
           return usuario
       }
->>>>>>> e5801a53d98ddb60ca379e605d0eaf0d15294f4d
   })
 
   
@@ -124,3 +119,4 @@ userControllers = {
     }
 }
 module.exports = userControllers;
+
