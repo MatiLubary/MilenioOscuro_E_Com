@@ -18,7 +18,7 @@ constrollersProducts = {
 
 
 
-                console.log(productosDetalle)
+               
 
                 res.render('products/productsDetail', {  producto: productosDetalle , usuario : req.session.usuario})
 

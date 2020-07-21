@@ -6,6 +6,7 @@ const path = require('path')
 
 
 
+
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './public/images')
@@ -20,7 +21,7 @@ var upload = multer({ storage: storage })
 
 router.get('/detail/:id' , controllersProducts.detail)
 
-router.get('/alta' , controllersProducts.alta)
+router.get('/alta' ,  controllersProducts.alta)
 
 router.post('/alta' , upload.any() ,  controllersProducts.dadoDeAlta)
 
