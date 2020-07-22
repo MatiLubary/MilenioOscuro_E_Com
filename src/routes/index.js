@@ -23,13 +23,6 @@ fs.writeFileSync( emailsFilePath , JSON.stringify(archivoEmail , null, 4))
 
 //-----------------------------------------------------------------------//
 
-router.get('/videoJuegos', controllerIdex.catA )
-
-router.get('/comics', controllerIdex.catB )
-
-router.get('/juegosDeMesa', controllerIdex.catC )
-
-
 
 router.get('/cart', controllerIdex.cart )
 
