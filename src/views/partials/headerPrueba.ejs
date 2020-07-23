@@ -59,13 +59,17 @@
 
                 <div id="esconderCarrito"
                     class="col-12 col-md-2 col-lg-4  d-flex justify-content-around align-items-center">
-                    <i class="fas fa-user d-flex justify-content-center align-items-center ml-5 ">
+                   
+                      
+                        
                         <% if ( usuario == undefined){ %>
+                            <i class="fas fa-user d-flex justify-content-center align-items-center ml-5 ">
                          <span> Mi cuenta
                         </span></i>
                    <% } else { %>
+                    <img id="iconoAvatar" class=" ml-5 "  src="/images/avatars/<%= usuario.avatar %> " alt="">
                         <span> <%= usuario.name %> 
-                        </span></i>
+                        </span><!-- </i> -->
                         <% } %>
                     <a class="navek" href="/cart"><i class="fas fa-shopping-cart d-flex justify-content-center align-items-center "> <span> Carrito
                         </span></i></a>

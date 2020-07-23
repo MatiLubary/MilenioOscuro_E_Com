@@ -22,7 +22,6 @@ userControllers = {
       }
   })
 
- /* bcrypt.compareSync(req.body.password , usuario.password) */
 
   if( usuarioEncontrado){
       req.session.usuario = usuarioEncontrado
@@ -35,7 +34,10 @@ userControllers = {
     }
 
       res.redirect("/")
-  } 
+  } else {
+ res.render ('users/login', {errors:[{msg:'invalid credentials'}], usuario : req.session.usuario }
+                );   
+  }
 
 
   
@@ -89,8 +91,11 @@ userControllers = {
             let user = {
                 name: req.body.name,
                 email: req.body.email,
-                password
+                password,
+                avatar : req.body.avatars
+
             }
+            console.log(req.body)
             let archivoUser = fs.readFileSync('src/data/users.json', {
                 encoding: 'utf-8'
             });
@@ -118,3 +123,4 @@ userControllers = {
     }
 }
 module.exports = userControllers;
+

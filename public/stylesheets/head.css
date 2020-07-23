@@ -38,12 +38,20 @@ span {
     font-weight: normal;
 }
 
+#iconoAvatar {
+    width: 11.5%;
+    border-radius: 50%;
+}
+
 @media (min-width: 1024px){
 
  #menuTablet {
     display: none !important  ;
 } 
 }
+
+
+
 /*  ------------------------------------- FOOTER-------------------------------*/
 
 #mailOferta {
@@ -123,7 +131,11 @@ span {
 @media (max-width: 768px){
 
 
-   
+   #iconoAvatar {
+       width: 27.5%;
+       margin-right: 13%;
+       border-radius: 50%;
+   }
 
 
 
