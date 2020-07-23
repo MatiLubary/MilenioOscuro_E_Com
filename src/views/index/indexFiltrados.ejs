@@ -25,18 +25,21 @@
 
   <!-- Page Content -->
 
+
   <section class="text-center marg-top2">
     <div class="container">
-        <h1 class="jumbotron-heading">Juegos de Mesa</h1>
+        <h1 class="jumbotron-heading"> 
+          <%= cat %>
+          </h1>
         <p class="lead text-muted mb-0">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte...</p>
     </div>
 </section>
-
+  
   <div class="container marg-top2">
 
-        <div class="row">
+        <div class="row">            
 
-          <% prodsJuegosDeMesa.forEach(product => { %>
+          <% prodsCategoriaX.forEach(product => { %>
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
@@ -65,6 +68,8 @@
   <!-- Bootstrap core JavaScript -->
   <script src="/javascripts/jquery.min.js"></script>
   <script src="/javascripts/bootstrap.bundle.min.js"></script>
+
+  <script type="text/javascript" src="/javascripts/app.js"></script>
 
 </body>
 

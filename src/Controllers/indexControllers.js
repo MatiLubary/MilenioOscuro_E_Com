@@ -5,37 +5,26 @@ const productsFilePath = path.join(__dirname, '../data/productos.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 
-
-let prodsVideoJuegos = products.filter(product => product.category == 'videoJuegos')
-let prodsComics = products.filter(product => product.category == 'comics')
-let prodsJuegosDeMesa = products.filter(product => product.category == 'juegosDeMesa')
-
 controllerIndex = {
 
   home: function (req, res, next) {
 
+    let prodsCategoriaX = products.filter (product => product.category == req.query.categoria)
+
+    let cat = req.query.categoria
+
+
+    if (req.query.categoria){
+
+      res.render('index/indexFiltrados', {
+    prodsCategoriaX, cat, usuario : req.session.usuario})
+  }
+
     res.render('index', {
-      products: products,usuario : req.session.usuario
+      products: products, usuario : req.session.usuario
     })
   },
 
-  catA: function (req, res, next) {
-
-    res.render('index/videoJuegos', {
-      prodsVideoJuegos, usuario : req.session.usuario})
-  },
-
-  catB: function (req, res, next) {
-    res.render('index/comics', {
-      prodsComics, usuario : req.session.usuario
-    })
-  },
-
-  catC: function (req, res, next) {
-    res.render('index/juegosDeMesa', {
-      prodsJuegosDeMesa , usuario : req.session.usuario
-    })
-  },
 
   cart: function (req, res, next) {
     res.render('index/cart' , {usuario : req.session.usuario})
