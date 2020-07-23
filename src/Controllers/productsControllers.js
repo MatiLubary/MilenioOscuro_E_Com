@@ -24,7 +24,7 @@ constrollersProducts = {
 
         },
 
-        alta: function (req, res) {
+       /*  alta: function (req, res) {
 
                
 
@@ -39,23 +39,26 @@ constrollersProducts = {
 
                 let nuevo = archivo.length + 1
 
+                    console.log(req.files)
+
+                    nuevoProducto.image = "/" + req.body.category + "/" + req.files[0].filename 
 
 
-                archivo.push(nuevoProducto, nuevoProducto.images = req.files[0].filename)
+                archivo.push(nuevoProducto)
 
                 fs.writeFileSync(productsFilePath, JSON.stringify(archivo, null, 4))
 
 
-                console.log(archivo)
+                
 
 
 
 
 
-                res.send("see")
+                res.redirect("/")
         }
 
-
+ */
 
      
                 

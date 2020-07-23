@@ -35,7 +35,6 @@
         "image": "/comics/marvercomics1000.jpg",
         "category": "comics"
     },
-
     {
         "id": 6,
         "name": "Batman Omnibus",
@@ -125,5 +124,13 @@
         "category": "juegosDeMesa",
         "description": "Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™1. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. ",
         "image": "/juegosdemesa/sushigo.jpg"
+    },
+    {
+        "name": "dsaasdads",
+        "price": "asdasd",
+        "category": "videoJuegos",
+        "description": "sadasdasdasdasd",
+        "id": 15,
+        "image": "/videoJuegos/image-1595545344403.jpg"
     }
 ]
