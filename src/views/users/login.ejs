@@ -23,7 +23,7 @@
         <input type="checkbox" name="recordame" value="yes">Remember Me<br>
       </form>
       <br>
-        <% if (typeof errors != 'undefined') { %>
+        <% if (typeof user != 'undefined') { %>
           <ul>
             <% for(let i=0; i < errors.length; i++) { %>
                   <li> 

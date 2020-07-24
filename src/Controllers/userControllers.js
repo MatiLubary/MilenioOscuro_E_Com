@@ -12,17 +12,16 @@ userControllers = {
 
         res.render('users/login' , {usuario : req.session.usuario})
     },
+
     processLogin: function (req, res, next) {
 
 
-     
  let usuarioEncontrado =  archivoUsuario.find(function(usuario){
       if (usuario.email == req.body.email && bcrypt.compareSync(req.body.password , usuario.password)){
           return usuario
       }
   })
 
-  
 
   if( usuarioEncontrado){
       req.session.usuario = usuarioEncontrado
@@ -41,6 +40,8 @@ userControllers = {
   }
 
 
+  
+},
 
 
        /*  let errors = (validationResult(req));
@@ -75,7 +76,7 @@ userControllers = {
         } else {
             return res.render ('users/login', {errors:errors.errors})
         } */
-        }  ,  
+            
 
     register: function (req, res, next) {
 
@@ -90,8 +91,11 @@ userControllers = {
             let user = {
                 name: req.body.name,
                 email: req.body.email,
-                password
+                password,
+                avatar : req.body.avatars
+
             }
+            console.log(req.body)
             let archivoUser = fs.readFileSync('src/data/users.json', {
                 encoding: 'utf-8'
             });

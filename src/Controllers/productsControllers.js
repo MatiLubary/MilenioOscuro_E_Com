@@ -18,15 +18,15 @@ constrollersProducts = {
 
 
 
-                console.log(productosDetalle)
+               
 
                 res.render('products/productsDetail', {  producto: productosDetalle , usuario : req.session.usuario})
 
         },
 
-        alta: function (req, res) {
+       /*  alta: function (req, res) {
 
-                req.session.usuario = "juan"
+               
 
                 res.render('products/productsAlta' , {usuario : req.session.usuario})
         },
@@ -39,23 +39,26 @@ constrollersProducts = {
 
                 let nuevo = archivo.length + 1
 
+                    console.log(req.files)
+
+                    nuevoProducto.image = "/" + req.body.category + "/" + req.files[0].filename 
 
 
-                archivo.push(nuevoProducto, nuevoProducto.images = req.files[0].filename)
+                archivo.push(nuevoProducto)
 
                 fs.writeFileSync(productsFilePath, JSON.stringify(archivo, null, 4))
 
 
-                console.log(archivo)
+                
 
 
 
 
 
-                res.send("see")
+                res.redirect("/")
         }
 
-
+ */
 
      
                 
