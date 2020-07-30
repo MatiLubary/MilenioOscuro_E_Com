@@ -54,6 +54,16 @@ let config = {
 
   let product = sequelize.define(alias, cols, config)
 
+
+  product.associate = function(models){
+      product.hasMany(models.cartsProducts , {
+          as : "cartsProducts",
+          foreignKey : "product_id"
+      })
+  }
+
+
+
   return product
 
 
