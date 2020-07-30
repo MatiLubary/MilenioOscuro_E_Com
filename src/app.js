@@ -11,7 +11,9 @@ var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products')
 var creditCardRouter = require('./routes/creditCard');
 var adminRouter = require('./routes/admin')
+var adminMiddleware = require('./middleware/accesoAdmin')
 var app = express();
+
 
 
 var recordameMiddleware = require("./middleware/recordameMiddleware")
@@ -34,7 +36,7 @@ app.use('/', indexRouter);
 app.use('/products' , productsRouter)
 app.use('/users', usersRouter);
 app.use('/payment', creditCardRouter);
-app.use('/admin' , adminRouter)
+app.use('/admin' , adminMiddleware , adminRouter)
 
 
 // catch 404 and forward to error handler

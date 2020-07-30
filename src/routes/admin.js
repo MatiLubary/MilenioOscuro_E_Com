@@ -26,7 +26,7 @@ var upload = multer({
 
 
 
-router.get('/', /* adminMiddleware , */ adminControllers.products)
+router.get('/',  adminControllers.products)
 
 //---------------------------------------------EDITAR PRODUCTO-------------------------------//
 

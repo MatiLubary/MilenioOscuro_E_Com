@@ -119,6 +119,10 @@ span {
         padding-right: 5px;
     }
 
+   .carousel-inner {
+       display: none;
+   }
+
 /* #menuTablet {
     display: none !important;
 } */
