@@ -132,5 +132,13 @@
         "description": "sadasdasdasdasd",
         "id": 15,
         "image": "/videoJuegos/image-1595545344403.jpg"
+    },
+    {
+        "name": "uri ant the will",
+        "price": "3333",
+        "category": "videoJuegos",
+        "description": "el mejor juego....",
+        "id": 16,
+        "image": "/videoJuegos/image-1595601474074.jpg"
     }
 ]

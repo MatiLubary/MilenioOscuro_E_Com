@@ -1,0 +1,8 @@
+body {
+    background-color: black;
+}
+.right {
+    display: flex;
+    justify-content: flex-end;
+    width: max-content;
+}

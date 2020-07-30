@@ -95,7 +95,7 @@ userControllers = {
                 avatar : req.body.avatars
 
             }
-            console.log(req.body)
+            //console.log(req.body)
             let archivoUser = fs.readFileSync('src/data/users.json', {
                 encoding: 'utf-8'
             });
@@ -119,7 +119,7 @@ userControllers = {
     profile: function (req, res, next) {
 
 
-        res.render('users/profile')
+        res.render('users/profile', {usuario : req.session.usuario})
     }
 }
 module.exports = userControllers;

@@ -26,6 +26,15 @@ fs.writeFileSync( emailsFilePath , JSON.stringify(archivoEmail , null, 4))
 
 router.get('/cart', controllerIdex.cart )
 
+//Rutas de Footer
+
+router.get('/contact', controllerIndex.contact)
+router.get('/envios', controllerIndex.envios)
+router.get('/quienes', controllerIndex.quienes)
+router.get('/metodopago', controllerIndex.metodopago)
+
+
+
 
 module.exports = router;
   
