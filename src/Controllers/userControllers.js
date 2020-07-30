@@ -28,8 +28,7 @@ userControllers = {
 
       if (req.body.recordame != undefined){
 
-        res.cookie('recordame', 
-        usuarioEncontrado.email, { maxAge: 60000 })
+        res.cookie('recordame',  { maxAge: 0 })
 
     }
 
@@ -120,7 +119,25 @@ userControllers = {
 
 
         res.render('users/profile', {usuario : req.session.usuario})
-    }
+    },
+
+   cerrarSesion : function (req, res,){
+    
+    req.session.usuario = undefined
+    
+    req.cookies.recordame = undefined
+
+    res.redirect("/")
+   }
+
+
+
+
+
+
+
+
+
 }
 module.exports = userControllers;
 

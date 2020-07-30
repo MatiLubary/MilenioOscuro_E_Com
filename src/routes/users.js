@@ -23,6 +23,6 @@ router.post('/register', [
 
 router.get('/profile', userControllers.profile);
 
-
+router.get("/cerrar" , userControllers.cerrarSesion)
 
 module.exports = router;
