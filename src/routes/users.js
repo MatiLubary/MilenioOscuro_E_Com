@@ -5,6 +5,7 @@ let {check, validationResult, body} = require ('express-validator')
 const users = require("../data/users.json")
 
 
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.redirect('users/login')
