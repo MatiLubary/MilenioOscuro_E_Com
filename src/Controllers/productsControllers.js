@@ -13,37 +13,27 @@ constrollersProducts = {
 
         detail: function (req, res) {
 
-                let productosDetalle = archivo.find(function (producto) {
+               /*  let productosDetalle = archivo.find(function (producto) {
                         return producto.id == req.params.id
+                }) */
+
+                db.products.findByPk(req.params.id)
+                .then(function(resultado){
+                        res.render('products/productsDetail', {  producto: resultado , usuario : req.session.usuario})
                 })
 
 
 
                
 
-                res.render('products/productsDetail', {  producto: productosDetalle , usuario : req.session.usuario})
+               
 
         },
 
          alta: function (req, res) {
 
 
-                db.products.findAll({
-                     include : [{association : "cartsProducts"}]
-                })
-                .then(function(resultado){
-  
-                   for ( let  product of resultado){
-                                console.log(product.name)
-                                for ( let  quien of product.cartsProducts){  
-                                   
-                                        console.log(quien.cart_id)
-                        }
-                } 
-                        
-                        
-                            res.send("listo")
-                })
+                res.send(req.body)
         }
 /* 
                 res.render('products/productsAlta' , {usuario : req.session.usuario}) */

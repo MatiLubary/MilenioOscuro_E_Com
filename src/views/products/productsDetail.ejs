@@ -6,7 +6,8 @@
 
 
 <div class="container ">
-
+  
+    
   <div class="card mt-5 " style="max-width: 100%; border-radius: 0 !important; /* box-shadow: 1px 1px 6px grey */">
     <div class="row no-gutters">
       <div class="col-md-8">
@@ -21,7 +22,7 @@
       </div>
       <div style="border-left: rgb(219, 217, 217) 1px solid; " class="col-md-4">
         <div class="card-body">
-          <h1 style="font-size: 30px; " class="card-title pt-2"> <%= producto.name %> </h1>
+          <h1 style="font-size: 30px; " class="card-title pt-2"  > <%= producto.name %> </h1>
 
           <!--  <span style="font-size: 16px;" class="text-success " ><strike>$ </strike> /  OFF</span> -->
           <h1 style="font-size: 35px;" class="card-title py-2 rem2"> <b> <%= producto.price %> </b></h1>
@@ -69,8 +70,8 @@
 
           <!-- <p style="font-size: 16px;"  class="card-text pb-5 pt-3"> <img width="10%" height="20%" src="https://d3lfzbr90tctqz.cloudfront.net/epi/resource/r/d/c57287e3c97689e9598fe6b80a45f67bfa1ab24c881d2bb6e07664783f358d3d" alt="">  Paga en 12 cuotas sin interes</p> -->
           <!-- <p style="font-size: 16px;" class="card-text pb-5 pt-3"> <i class="fas fa-store pr-3 text-success"></i>   Retiro gratis en locales del vendedor</p> -->
-          <a href="/payment/creditCard"><button style="width: 100%; font-size:22px; border-radius: 6px; " type="button"
-            class="btn btn-primary mt-5">Comprar</button></a>
+          <a href="/cart/<%= producto.id %>"><button  style="width: 100%; font-size:22px; border-radius: 6px; " type="submit"
+            class="btn btn-primary mt-5 aniadir">Comprar</button></a>
 
 
 
@@ -117,7 +118,7 @@
 
 
 
-
+<script src="/javascripts/carrito.js"></script>
 
 
 <%- include('../partials/footerPrueba') %>

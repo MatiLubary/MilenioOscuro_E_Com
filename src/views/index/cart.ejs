@@ -16,17 +16,22 @@
             <div class="col-md-4 order-md-2 mb-4 mg-10">
               <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-muted">Your cart</span>
-                <span class="badge badge-secondary badge-pill">3</span>
+                <span class="badge badge-secondary badge-pill"><%= productos.length %></span>
               </h4>
               <ul class="list-group mb-3">
+
+                <% for (let product of productos) { %>
+
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                   <div>
-                    <h6 class="my-0">Product name</h6>
-                    <small class="text-muted">Brief description</small>
+                    <h6 class="my-0"><%= product.products.name %></h6>
+                    <small class="text-muted"><%= product.products.description %></small>
                   </div>
-                  <span class="text-muted">$12</span>
+                  <span class="text-muted">$<%= product.products.price %></span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
+
+                <% } %>  
+                <!-- <li class="list-group-item d-flex justify-content-between lh-condensed">
                   <div>
                     <h6 class="my-0">Second product</h6>
                     <small class="text-muted">Brief description</small>
@@ -50,7 +55,7 @@
                 <li class="list-group-item d-flex justify-content-between">
                   <span>Total (USD)</span>
                   <strong>$20</strong>
-                </li>
+                </li> -->
               </ul>
     
               <form class="card p-2">
@@ -64,20 +69,24 @@
             </div>
            
             
+    <% for (let product of productos) { %>
 
+    
             <div class="col-lg-8 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                <a href="#"><img class="card-img-top" src="/images/<%= product.products.image %>" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#"> product.name </a>
+                    <a href="#"> <%= product.products.name %>  </a>
                   </h4>
-                  <h5>$ product.price </h5>
-                  <p class="card-text"> product.description </p>
+                  <h5>$ <%= product.products.price %> </h5>
+                  <p class="card-text"> <%= product.products.description %> </p>
                 </div>
               </div>
             </div>            
-            
+          
+            <% } %>  
+
           </div>
           <a href="/payment/creditCard"><button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button></a>
         </div>
