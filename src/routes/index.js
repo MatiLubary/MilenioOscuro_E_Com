@@ -24,7 +24,7 @@ fs.writeFileSync( emailsFilePath , JSON.stringify(archivoEmail , null, 4))
 //-----------------------------------------------------------------------//
 
 
-router.get('/cart', controllerIdex.cart )
+router.get('/cart/:id?', controllerIdex.cart )
 
 //Rutas de Footer
 
