@@ -7,7 +7,7 @@
 }
 .form {
   position: relative;
-  z-index: 1;
+  z-index: 0;
   background: #FFFFFF;
   max-width: 360px;
   margin: 0 auto 100px;
@@ -93,4 +93,17 @@ body {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
+}
+.div #record {
+  position: relative;
+  display: flex;
+  font-size: 12px;
+  text-align: right;
+  width: 32%;
+  color: gray;
+  align-items: stretch;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; 
+  
 }

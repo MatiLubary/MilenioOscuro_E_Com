@@ -16,13 +16,19 @@
     <div class="login-page">
      <div class="form">
       <form class="login-form">
-        <input type="text" name="email" placeholder="direccion de email/email address"/>
-        <input type="password" name="password" placeholder="contraseña/password"/>
+        <input type="text" name="email" placeholder="direccion de email"/>
+        <input type="password" name="password" placeholder="contraseña"/>
         <button type="submit">Ingresar</button>
-        <p class="message">No esta registrado? <a href="register">Cree una cuenta</a></p>
-        <input type="checkbox" name="recordame" value="yes">Remember Me<br>
+        <p class="message">No esta registrado? <a href="register">Cree una cuenta</a></p><br>
+        
       </form>
-      <br>
+  <div class="div">
+    <p id="record"> 
+        <input type="checkbox" name="recordame" value="yes"/>  Recordarme 
+    </p>
+  </div>     
+      
+      
         <% if (typeof user != 'undefined') { %>
           <ul>
             <% for(let i=0; i < errors.length; i++) { %>
