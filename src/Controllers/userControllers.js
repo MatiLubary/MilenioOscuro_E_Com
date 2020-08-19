@@ -42,12 +42,17 @@ userControllers = {
         db.users.findOne({
                 where: {
                     email: req.body.email,
-                    password: req.body.password
+                   
                 }
             })
             .then(function (usuario) {
-            
+        
+
+           
                 if (usuario) {
+                    let contrasenia =    bcrypt.compareSync( req.body.password , usuario.password )
+                    if(contrasenia){
+                        console.log(contrasenia)
                     req.session.usuario = usuario
 
                     if (req.body.recordame != undefined) {
@@ -59,7 +64,9 @@ userControllers = {
                     }
 
                     res.redirect("/")
-                } else {
+                
+            } 
+            else {
                     res.render('users/login', {
                         errors: [{
                             msg: 'invalid credentials'
@@ -67,8 +74,9 @@ userControllers = {
                         usuario: req.session.usuario
                     });
                 }
+            }
 
-                db.carts.findOne({
+               /*  db.carts.findOne({
                         where: {
                             users_id: usuario.id
                         }
@@ -86,7 +94,7 @@ userControllers = {
 
 
                     })
-
+ */
 
 
 
@@ -105,9 +113,9 @@ userControllers = {
     },
 
     create: function (req, res, next) {
-        /* let password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)); */
+        let password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
         let errors = (validationResult(req));
-
+        
 
         db.users.findOne({
                 where: {
@@ -131,7 +139,7 @@ userControllers = {
                         db.users.create({
                             username: req.body.name,
                             email: req.body.email,
-                            password: req.body.password,
+                            password: password,
                             avatar: req.body.avatars
                         })
                         res.redirect('/')

@@ -21,10 +21,10 @@ fs.writeFileSync( emailsFilePath , JSON.stringify(archivoEmail , null, 4))
    res.redirect('/')
 } )
 
-//-----------------------------------------------------------------------//
+//--------------------------------buscador---------------------------------------//
 
+router.get('/search', controllerIdex.search)
 
-router.get('/cart/:id?', controllerIdex.cart )
 
 //Rutas de Footer
 

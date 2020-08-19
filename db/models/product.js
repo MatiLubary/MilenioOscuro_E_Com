@@ -56,9 +56,12 @@ let config = {
 
 
   product.associate = function(models){
-      product.hasMany(models.cartsProducts , {
-          as : "cartsProducts",
-          foreignKey : "product_id"
+      product.belongsToMany(models.carts , {
+          as : "carts",
+          through: "carts_products",
+          foreignKey : "product_id",
+          otherKey : "cart_id",
+          timestamps: true
       })
   }
 

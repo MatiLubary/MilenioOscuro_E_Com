@@ -4,6 +4,7 @@ const path = require('path')
 const productsFilePath = path.join(__dirname, '../data/productos.json');
 const multer = require('multer')
 const db = require('../../db/models')
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 constrollersProducts = {
 
@@ -19,7 +20,7 @@ constrollersProducts = {
 
                 db.products.findByPk(req.params.id)
                 .then(function(resultado){
-                        res.render('products/productsDetail', {  producto: resultado , usuario : req.session.usuario})
+                        res.render('products/productsDetail', {  producto: resultado , usuario : req.session.usuario ,toThousand })
                 })
 
 
@@ -34,7 +35,17 @@ constrollersProducts = {
 
 
                 res.send(req.body)
-        }
+        } ,
+
+
+          api : function(req, res){
+
+                db.products.findAll()
+                .then(function(result){
+                        res.json(result)
+                })
+          }
+
 /* 
                 res.render('products/productsAlta' , {usuario : req.session.usuario}) */
        /*  }, */

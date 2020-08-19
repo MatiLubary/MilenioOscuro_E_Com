@@ -1,12 +1,23 @@
+
 <%- include('../partials/headerPrueba') %>
+
+
+<% if ( typeof errores != 'undefined'){ %>
+          <% for ( let error of errores){ %> 
+             <p> <%= error.msg %> </p>
+            <% }  %>  
+<% }  %> 
+
+
 
 <div class="container py-5 mt-4" style="background-color: white; border: rgb(219, 217, 217) 1px solid;;">
 
-<form action="/admin/edit/<%= producto.id %>" method="POST" enctype="multipart/form-data" >
+<form id="formulario" action="/admin/edit/<%= producto.id %>" method="POST" enctype="multipart/form-data" >
     <div class="form-row">
       <div class="form-group col-md-9">
         <label for="inputEmail4">Nombre del producto</label>
-        <input type="text" class="form-control" id="inputEmail4" name="name" value="<%= producto.name %> ">
+        <input type="text" class="form-control" id="inputEmail4" name="name" autocomplete="off" value="<%= producto.name %> ">
+        <span id="errorName" class="ocultar" style="color: red;opacity: 0.7; font-size: 13px;font-weight: 600;" >*Tiene que tener al menos 5 caracteres*</span>
       </div>
       <div class="form-group col-md-3">
         <label for="inputPassword4">Precio del producto:</label>
@@ -27,7 +38,7 @@
     <div class="form-group col-md-6">
       <label for="inputCity" style="padding-left: 8px">Imagen del producto</label>
      <!--  <input type="file" class="form-control-file" id="exampleFormControlFile1" style="padding-top: 3px;padding-left: 5px;"> -->
-      <input type="file" class="form-control-file"  name="image" style="padding-top: 3px;padding-left: 5px;"  " >
+      <input type="file" class="form-control-file"  name="image" accept="image/*" style="padding-top: 3px;padding-left: 5px;"  " >
     </div>
    
   </div>
@@ -47,12 +58,15 @@
       
     <div class="form-group">
       <label for="inputAddress2">Descripción</label>
-      <input type="text " class="form-control" id="inputAddress2"  name="description" value="<%= producto.description %> " >
+      <input type="text " class="form-control" id="inputAddress2" autocomplete="off"  name="description" value="<%= producto.description %>" >
+      <span id="errorDescription" class="ocultar" style="color: red;opacity: 0.7; font-size: 13px;font-weight: 600;"  >*Tiene que tener al menos 20 caracteres*</span>
     </div>
    
     <button type="submit" class="btn btn-primary">Subir producto</button>
   </form>
 
 </div>
+
+<script src="/javascripts/validacionAdminEdit/editAdmin.js"></script>
 
 <%- include('../partials/footerPrueba') %>
