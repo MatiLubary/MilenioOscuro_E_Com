@@ -7,7 +7,7 @@
 
 <div class="container ">
   
-    
+    <form action="/cart" method="POST">
   <div class="card mt-5 " style="max-width: 100%; border-radius: 0 !important; /* box-shadow: 1px 1px 6px grey */">
     <div class="row no-gutters">
       <div class="col-md-8">
@@ -25,7 +25,7 @@
           <h1 style="font-size: 30px; " class="card-title pt-2"  > <%= producto.name %> </h1>
 
           <!--  <span style="font-size: 16px;" class="text-success " ><strike>$ </strike> /  OFF</span> -->
-          <h1 style="font-size: 35px;" class="card-title py-2 rem2"> <b> <%= producto.price %> </b></h1>
+          <h1 style="font-size: 35px;" class="card-title py-2 rem2"> <b> $<%= toThousand(producto.price) %> </b></h1>
 
 
 
@@ -58,7 +58,8 @@
               <option value="4">4</option>
             </select>
           </div>
-
+           
+          <input style="display: none;" type="text" name="idProducto" value="<%= producto.id %>" id="">
 
 
             <p style="font-size: 16px;" class="card-text pt-5 d-flex justify-content  align-items-center pl-2 "> <i
@@ -70,8 +71,8 @@
 
           <!-- <p style="font-size: 16px;"  class="card-text pb-5 pt-3"> <img width="10%" height="20%" src="https://d3lfzbr90tctqz.cloudfront.net/epi/resource/r/d/c57287e3c97689e9598fe6b80a45f67bfa1ab24c881d2bb6e07664783f358d3d" alt="">  Paga en 12 cuotas sin interes</p> -->
           <!-- <p style="font-size: 16px;" class="card-text pb-5 pt-3"> <i class="fas fa-store pr-3 text-success"></i>   Retiro gratis en locales del vendedor</p> -->
-          <a href="/cart/<%= producto.id %>"><button  style="width: 100%; font-size:22px; border-radius: 6px; " type="submit"
-            class="btn btn-primary mt-5 aniadir">Comprar</button></a>
+          <button id="sumarCarrito" style="width: 100%; font-size:22px; border-radius: 6px; " type="submit"
+            class="btn btn-primary mt-5 aniadir">Añadir al carrito</button>
 
 
 
@@ -88,7 +89,7 @@
       </div>
     </div>
   </div>
-
+</form>
 </div>
 
 
@@ -111,14 +112,9 @@
 </div>
 
 
-   
 
 
-
-
-
-
-<script src="/javascripts/carrito.js"></script>
+<script src="/javascripts/cantidadCarrito.js"></script>
 
 
 <%- include('../partials/footerPrueba') %>

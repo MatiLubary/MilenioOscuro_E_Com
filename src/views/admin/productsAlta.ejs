@@ -2,11 +2,12 @@
 
 <div class="container py-5 mt-4" style="background-color: white; border: rgb(219, 217, 217) 1px solid;;">
 
-<form action="/admin/alta" method="POST" enctype="multipart/form-data">
+<form id="formulario" action="/admin/alta" method="POST" enctype="multipart/form-data">
     <div class="form-row">
       <div class="form-group col-md-9">
         <label for="inputEmail4">Nombre del producto</label>
         <input type="text" class="form-control" id="inputEmail4" name="name">
+        <span id="errorName" class="ocultar" style="color: red;opacity: 0.7; font-size: 13px;font-weight: 600;" >*Tiene que tener al menos 5 caracteres*</span>
       </div>
       <div class="form-group col-md-3">
         <label for="inputPassword4">Precio del producto:</label>
@@ -16,8 +17,8 @@
     <div class="form-row">
     <div class="form-group col-md-6 ">
       <label for="inputState">Categoria</label>
-      <select id="inputState" class="form-control" name="category">
-        <option selected>Seleccione la categoria</option>
+      <select id="inputState" class="form-control" name="category" required>
+        <option selected >Seleccione la categoria</option>
         <option value="videoJuegos">Video juegos</option>
         <option value="comics">Comics</option>
         <option value="juegosDeMesa">Juego de mesa</option>
@@ -27,7 +28,7 @@
     <div class="form-group col-md-6">
       <label for="inputCity" style="padding-left: 8px">Imagen del producto</label>
      <!--  <input type="file" class="form-control-file" id="exampleFormControlFile1" style="padding-top: 3px;padding-left: 5px;"> -->
-      <input type="file" class="form-control-file"  name="image" style="padding-top: 3px;padding-left: 5px; " >
+      <input type="file" class="form-control-file"  name="image" accept="image/*" style="padding-top: 3px;padding-left: 5px; " >
     </div>
    
   </div>
@@ -48,11 +49,14 @@
     <div class="form-group">
       <label for="inputAddress2">Descripción</label>
       <input type="text " class="form-control" id="inputAddress2"  name="description"  >
+      <span id="errorDescription" class="ocultar" style="color: red;opacity: 0.7; font-size: 13px;font-weight: 600;"  >*Tiene que tener al menos 20 caracteres*</span>
     </div>
    
     <button type="submit" class="btn btn-primary">Subir producto</button>
   </form>
 
 </div>
+
+<script src="/javascripts/validacionAdminEdit/editAdmin.js"></script>
 
 <%- include('../partials/footerPrueba') %>

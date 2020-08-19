@@ -3,6 +3,9 @@ const path = require('path')
 const fs = require('fs')
 const productsFilePath = path.join(__dirname, '../data/productos.json');
 const db = require('../../db/models')
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+let {check, validationResult, body} = require ('express-validator') 
+
 
 adminControllers = {
 
@@ -15,7 +18,7 @@ adminControllers = {
 
            db.products.findAll()
            .then(function(productos){
-               res.render('admin/adminProducts' , {productos : productos})
+               res.render('admin/adminProducts' , {productos : productos , toThousand})
            })
 
 
@@ -32,13 +35,15 @@ adminControllers = {
             producto: producto
         }) */
 
+
    
       db.products.findByPk(req.params.id)
       .then(function(producto){
 
         res.render('admin/editProduct', {
             usuario: req.session.usuario,
-            producto: producto
+            producto: producto,
+            
         })
       })
    
@@ -55,6 +60,12 @@ adminControllers = {
 
     update: function (req, res, next) {
 
+        var errors = (validationResult(req))
+       console.log(errors)
+       console.log(req.body.name)
+        
+       /*  if( errors.isEmpty()){ */
+           
         if(req.files.filename != undefined){
             db.products.update({
                 name : req.body.name ,
@@ -85,8 +96,23 @@ adminControllers = {
     
              res.redirect('/admin')
         }
+    /* } else {
+        db.products.findByPk(req.params.id)
+      .then(function(producto){
 
+        res.render('admin/editProduct', {
+            usuario: req.session.usuario,
+            producto: producto,
+            errores : errors.errors
+            
+        })
+      })
+   
         
+    
+    } */
+
+    
 
 
 
@@ -123,7 +149,8 @@ console.log(req.files)
 
 
         res.redirect("/") */
-
+        var errors = validationResult(req)
+        console.log(errors)
 
         db.products.create({
             name : req.body.name ,

@@ -23,6 +23,8 @@ router.get('/detail/:id' , controllersProducts.detail)
 
  router.post('/alta' ,  controllersProducts.alta)
 
+router.get('/developers' , controllersProducts.api)
+
 /* router.post('/alta' , upload.any() ,  controllersProducts.dadoDeAlta)  */
 
 
