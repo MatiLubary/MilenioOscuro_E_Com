@@ -94,3 +94,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
 }
+
+
+.dnone {
+  display: none;
+}
+
+.req{
+  color: red;
+  text-align: left;
+  font-size: 12px;
+  margin-top: -15px;
+
+}
+
+.mtop {
+  margin-top: .6rem;
+}

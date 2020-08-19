@@ -190,7 +190,6 @@ precioFinal = totalCarro
 
 
 
-
 res.render('index/cart', {
     productos: noEliminados,
     usuario: req.session.usuario,

@@ -12,13 +12,15 @@
 
 <body>
   <%- include('../partials/headerPrueba') %>
-  <form action="/users/login" method="POST" id="form">
+  <form action="/users/login" method="POST" id="form" onsubmit="return validated()">
     <div class="login-page">
      <div class="form">
       <form class="login-form">
-        <input type="text" name="email" placeholder="direccion de email/email address"/>
-        <input type="password" name="password" placeholder="contraseña/password"/>
-        <button type="submit">Ingresar</button>
+        <input id = "email" type="text" name="email" placeholder="direccion de email/email address"/>
+        <div id = "emailReq" class="dnone req">*Required</div>
+        <input id = "pw" type="password" name="password" placeholder="contraseña/password"/>
+        <div id = "pwReq" class="dnone req">*Required</div>
+        <button id = "submit" class = "mtop" type="submit">Ingresar</button>
         <p class="message">No esta registrado? <a href="register">Cree una cuenta</a></p>
         <input type="checkbox" name="recordame" value="yes">Remember Me<br>
       </form>
@@ -36,6 +38,7 @@
   </div>
 
 
+
   <%- include('../partials/footerPrueba') %>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
@@ -46,6 +49,14 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
   </script>
+
+  
+  <script type="text/javascript" src="/javascripts/loginValid.js"></script>
+
+<!-- <script type="text/javascript" src="../../../public/javascripts/loginValid.js"></script> -->
+
+
+
 </body>
 
 </html>

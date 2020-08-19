@@ -7,6 +7,67 @@ body {
   padding-top: 80px
 }
 
+.box {
+  border: solid;
+}
+
+
+@media (max-width: 426px) {
+  .onlyMobilePadT{
+    padding-top: 1rem;
+  }
+  }
+
+
+
+
+@media (min-width: 426px) {
+.onlyMobile{
+  display: none;
+}
+}
+
+.mleft {
+margin-left: 12px
+}
+
+.ptop {
+  padding-top: 0.8rem;
+}
+
+@media (max-width: 2560px)  and (min-width: 769px) {
+  .stick-topBigger {
+      position: absolute !important;
+      z-index: 1;
+      right: 390px;
+      width: 20% !important;
+  }
+  }
+
+@media (max-width: 1440px)  and (min-width: 769px) {
+.stick-topBig {
+    position: absolute !important;
+    z-index: 1;
+    right: 150px;
+    width: 25% !important;
+}
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .stick-topMed {
+      position: absolute !important;
+      z-index: 1;
+      right: 10px;
+      width: 40% !important;
+  }
+  }
+
+  @media (max-width: 768px) {
+.col-md-4 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+}
+}
 
 .prodImg {
   width: 358px;

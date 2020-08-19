@@ -60,7 +60,9 @@
           </a>
         </div>
 
-        <div class="row">
+        <img class= "onlyMobile" src="https://i.pinimg.com/originals/e9/9f/3a/e99f3a82d2370506419d45061350132d.jpg" style="width:100%">
+
+        <div class="row onlyMobilePadT">
 
           <% products.forEach(product => { %>
           
@@ -71,8 +73,7 @@
                 <h4 class="card-title">
                   <a href="/products/detail/<%= product.id %>"><%= product.name %></a>
                 </h4>
-                <h5>$ <%= toThousand(product.price) %></h5>
-                <p class="card-text"><%= product.description %></p>
+                <h5>$<%= product.price %></h5>
               </div>
              
             </div>
@@ -88,6 +89,8 @@
 
     </div>
     <!-- /.row -->
+
+
 
   </div>
   <!-- /.container -->
