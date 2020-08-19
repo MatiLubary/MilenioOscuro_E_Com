@@ -9,6 +9,8 @@ controllerIndex = {
 
   home: function (req, res, next) {
 
+    
+
     let prodsCategoriaX = products.filter(product => product.category == req.query.categoria)
 
     let cat = req.query.categoria
@@ -17,23 +19,31 @@ controllerIndex = {
 
     if (req.query.categoria) {
 
-      res.render('index/indexFiltrados', {
-        prodsCategoriaX,
-        cat,
-        usuario: req.session.usuario
+      db.products.findAll({
+        limit: 10,
+        where: {
+          category : req.query.categoria
+        }
+      }).then(function (products) {
+        res.render('index/indexFiltrados', {
+          products: products,
+          cat,
+          usuario: req.session.usuario
+        })
       })
+
     }
 
-    /* res.render('index', {
-      products: products, usuario : req.session.usuario
-    
-    }) */
-    db.products.findAll()
+
+    db.products.findAll({
+
+      offset: 2,
+      limit: 5
+    })
       .then(function (products) {
         res.render('index', {
           products: products,
           usuario: req.session.usuario
-
         })
 
       })

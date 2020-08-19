@@ -12,7 +12,7 @@ window.addEventListener('load', function() {
     let errorPassword = document.getElementsByClassName('errorPassword');
 
     formulario.addEventListener("submit", function(e){
-      //e.preventDefault();
+      e.preventDefault();
 
         let errores = 0;
 
