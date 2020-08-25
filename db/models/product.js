@@ -32,6 +32,13 @@ let cols = {
         type : dataTypes.STRING
    },
 
+   offer : {
+       type : dataTypes.STRING
+   },
+   newprice : {
+       type : dataTypes.INTEGER
+   }
+
 
 }
 

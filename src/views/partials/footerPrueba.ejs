@@ -14,19 +14,19 @@
             <div  class="d-flex justify-content-start align-items-center">
             <input type="text" placeholder="Ingresa tu email">
         </div> -->
-                  <form action="/" method="POST">
+                  <form action="/emails" method="POST">
                 <label style="font-weight: bold; font-family: Lato,sans-serif; font-size: 14px;" class="d-flex justify-content-start align-items-center py-2" for="">
                     RECIBI NUESTRAS PROMOCIONES</label>
                 <div id="mailOferta" class="input-group">
 
-                    <input id="search" type="text" placeholder="Introducir email" name="email" class="form-control "
+                    <input id="search" type="text" placeholder="Introducir email" name="email" autocomplete="off" class="form-control "
                         required>
                    
                     <div class="input-group-append">
                       
                            <span id="anchoSearch"
                             class="input-group-text d-flex justify-content-center align-items-center">
-                           <button type="submit" style="border: none;"> <i style="color: #495057;" class="far fa-envelope d-flex justify-content-center align-items-center"></i></button>
+                           <button type="submit" style="all: unset; cursor: pointer;"> <i style="color: #495057;" class="far fa-envelope d-flex justify-content-center align-items-center"></i></button>
                         </span>
                    
                     </div>
@@ -48,8 +48,8 @@
 
                 <div style="font-weight: bold; font-family: Lato,sans-serif; font-size: 14px;" class="d-flex justify-content-start align-items-center py-2">PREGUNTAS FRECUENTES</div>
 
-                <a href="/metodopago"><div class="d-flex justify-content-start align-items-center py-1">Metodos de Pago</div></a>
-                <a href="/envios"><div class="d-flex justify-content-start align-items-center pb-3 ">Metodos y costo de envio </div></a>
+                <a href="/metodopago" class="loslinks"><div class="d-flex justify-content-start align-items-center py-1">Metodos de Pago</div></a>
+                <a href="/envios" class="loslinks"><div class="d-flex justify-content-start align-items-center pb-3 ">Metodos y costo de envio </div></a>
 
 
             </div>
@@ -58,8 +58,8 @@
                 <div style="font-weight: bold; font-family: Lato,sans-serif; font-size: 14px;" class="d-flex justify-content-start align-items-center py-2"> CONOCENOS
                 </div>
 
-                <a href="/quienes"><div class="d-flex justify-content-start align-items-center py-1">¿Quienes somos?</div></a>
-                <a href="/contact"><div class="d-flex justify-content-start align-items-center">Contacto</div></a>
+                <a href="/quienes" class="loslinks"><div class="d-flex justify-content-start align-items-center py-1">¿Quienes somos?</div></a>
+                <a href="/contact" class="loslinks"><div class="d-flex justify-content-start align-items-center">Contacto</div></a>
                     
                 
             </div>

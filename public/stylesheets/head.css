@@ -7,6 +7,12 @@ body {
    
 }
 
+.loslinks {
+    color: #bbb;
+    text-decoration: none !important
+}
+
+
 .sombreado {
     background-color: dimgrey;
 }

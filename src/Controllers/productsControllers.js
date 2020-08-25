@@ -20,11 +20,25 @@ constrollersProducts = {
 
                 db.products.findByPk(req.params.id)
                 .then(function(resultado){
-                        res.render('products/productsDetail', {  producto: resultado , usuario : req.session.usuario ,toThousand })
+                     var prodSeleccionado = resultado
+               console.log(resultado)
+                     db.products.findAll({
+                             where : {
+                                     offer : "on"
+                             }
+                     })
+                     .then(function(ofertas){
+                             var prodRelacionados = ofertas
+                             res.render('products/productsDetail', {  producto: resultado , usuario : req.session.usuario ,toThousand , ofertas : prodRelacionados })
+                        })
+                                 
+
+                     
+                        
                 })
 
 
-
+        
                
 
                
