@@ -1,4 +1,6 @@
 const archivoUsuario = require('../data/users.json')
+/* const db = require('../../db/models') */
+
 
 module.exports = function  (req, res, next) {
 
@@ -17,3 +19,22 @@ module.exports = function  (req, res, next) {
     }
     next()
 }
+
+
+/* if (req.cookies.recordame != undefined && req.session.usuario == undefined) {
+
+    let usuarioEncontrado = db.users.findOne({
+        where: {
+            email: req.cookies.recordame,
+        }
+    }
+    )
+    if (usuarioEncontrado) {
+
+        req.session.usuario = usuarioEncontrado
+        
+        }
+        
+}
+next()
+} */
