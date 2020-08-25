@@ -58,7 +58,7 @@ userControllers = {
                     if (req.body.recordame != undefined) {
 
                         res.cookie('recordame', {
-                            maxAge: 0
+                            maxAge: 60000
                         })
 
                     }

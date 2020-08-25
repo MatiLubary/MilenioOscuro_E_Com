@@ -1,11 +1,11 @@
 const archivoUsuario = require('../data/users.json')
-/* const db = require('../../db/models') */
+const db = require('../../db/models')
 
 
 module.exports = function  (req, res, next) {
 
 
-    if (req.cookies.recordame != undefined && req.session.usuario == undefined) {
+/*     if (req.cookies.recordame != undefined && req.session.usuario == undefined) {
 
         let usuarioEncontrado = archivoUsuario.find(usuario => {
             return usuario.email == req.cookies.recordame
@@ -18,10 +18,10 @@ module.exports = function  (req, res, next) {
             
     }
     next()
-}
+} */
 
 
-/* if (req.cookies.recordame != undefined && req.session.usuario == undefined) {
+if (req.cookies.recordame != undefined && req.session.usuario == undefined) {
 
     let usuarioEncontrado = db.users.findOne({
         where: {
@@ -37,4 +37,4 @@ module.exports = function  (req, res, next) {
         
 }
 next()
-} */
+}

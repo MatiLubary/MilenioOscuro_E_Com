@@ -97,8 +97,22 @@
       <!-- /.col-lg-9 -->
 
     </div>
-    <!-- /.row -->
 
+
+    <!-- /.row -->
+      <div class="d-flex justify-content-between">
+
+            <ul class="pagination">
+               <li class="page-item page-link"><a href="<%= pagination.firstUrl %>">Primera Pagina</a></li>
+              <li class="page-item page-link"><a href="<%= pagination.prevUrl %>">Atras></li>
+            </ul>
+
+            <ul class="pagination">
+              <li class="page-item page-link"><a href="<%= pagination.nextUrl %>">Adelante</a></li>
+              <li class="page-item page-link"><a href="<%= pagination.lastUrl %>">Ultima Pagina</a></li>
+            </ul>
+
+        </div>
 
 
   </div>

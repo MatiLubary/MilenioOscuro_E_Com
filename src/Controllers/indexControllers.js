@@ -21,14 +21,21 @@ controllerIndex = {
 
     if (req.query.categoria) {
 
-      db.products.findAll({
-        limit: 10,
+      db.products.findAndCountAll({
+        offset: Number(req.query.page)*8 || 0,
+        limit: 8, 
         where: {
           category : req.query.categoria
         }
       }).then(function (products) {
         res.render('index/indexFiltrados', {
-          products: products,
+          products: products.rows,
+          pagination: {
+            firstUrl: '/',
+            nextUrl : '/?page=' + (req.query.page ? Number(req.query.page)+ 1 : 1),
+            prevUrl :  '?page=' + (req.query.page ? Number(req.query.page) - 1 : 0),
+            lastUrl : '?page=' + (parseInt(products.count / 8) - 1)
+            },
           cat,
           usuario: req.session.usuario,
           toThousand
@@ -38,11 +45,19 @@ controllerIndex = {
     }
 
 
-    db.products.findAll()
+    db.products.findAndCountAll({
+      offset: Number(req.query.page)*8 || 0,
+      limit: 8, })
       .then(function (products) {
         console.log(products)
         res.render('index', {
-          products: products,
+          products: products.rows,
+          pagination: {
+            firstUrl: '/',
+            nextUrl : '/?page=' + (req.query.page ? Number(req.query.page)+ 1 : 1),
+            prevUrl :  '?page=' + (req.query.page ? Number(req.query.page) - 1 : 0),
+            lastUrl : '?page=' + (parseInt(products.count / 8) - 1)
+            },
           usuario: req.session.usuario,
           toThousand
 
