@@ -66,14 +66,23 @@
 
           <% products.forEach(product => { %>
           
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-3 col-md-6 mb-4">
             <div class="card h-100">
-              <a href=   "/products/detail/<%= product.id %>"    ><img class="card-img-top prodImg" src="/images/<%= product.image %>" alt=""></a>
+              <div style="height: 75%;">
+              <a href=   "/products/detail/<%= product.id %>"><img  class="card-img-top prodImg" style="height: 100%;" src="/images/<%= product.image %>" alt=""></a>
+            </div>
               <div class="card-body">
                 <h4 class="card-title">
                   <a href="/products/detail/<%= product.id %>"><%= product.name %></a>
                 </h4>
-                <h5>$<%= product.price %></h5>
+                <% if (product.offer == "on")  { %> 
+                <h5 style="float: left;">$<%= product.newprice %></h5>
+                <div class="d-flex justify-content-end">
+                <span class="badge badge-success">¡Oferta!</span>
+              </div>
+                <% } else { %>
+                  <h5>$<%= toThousand(product.price) %></h5>
+                  <% }%>
               </div>
              
             </div>

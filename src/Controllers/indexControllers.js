@@ -30,19 +30,17 @@ controllerIndex = {
         res.render('index/indexFiltrados', {
           products: products,
           cat,
-          usuario: req.session.usuario
+          usuario: req.session.usuario,
+          toThousand
         })
       })
 
     }
 
 
-    db.products.findAll({
-
-      offset: 2,
-      limit: 5
-    })
+    db.products.findAll()
       .then(function (products) {
+        console.log(products)
         res.render('index', {
           products: products,
           usuario: req.session.usuario,
@@ -68,6 +66,14 @@ controllerIndex = {
  },
 
 
+ emailOfert : function(req, res){
+
+  db.emails.create({
+    email : req.body.email
+  })
+
+ res.redirect('/')
+},
 
 
 

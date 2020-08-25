@@ -78,7 +78,7 @@
                         <span> <%= usuario.username %> 
                         </span><!-- </i> -->
                         <% } %>
-                    <a class="navek" href="/cart"><i class="fas fa-shopping-cart d-flex justify-content-center align-items-center "> <span> Carrito
+                    <a class="navek loslinks" href="/cart"><i class="fas fa-shopping-cart d-flex justify-content-center align-items-center "> <span> Carrito
                         </span></i></a>
                         <div  id="main">
                             <button class="openbtn " onclick="openNav()"><i id="menuTablet" style="font-size: 24px;"
@@ -108,9 +108,9 @@
             <div id="esconderNav" style="background-color: #222;" class="row pb-2 ">
                 <div class="col-6">
 
-                    <a  class="navek" href="/?categoria=videoJuegos">Video juegos</a>
-                    <a class="navek" href="/?categoria=comics">Comics</a>
-                    <a class="navek" href="/?categoria=juegosDeMesa">Juegos de mesa</a>
+                    <a  class="navek loslinks" href="/?categoria=videoJuegos">Video juegos</a>
+                    <a class="navek loslinks" href="/?categoria=comics">Comics</a>
+                    <a class="navek loslinks" href="/?categoria=juegosDeMesa">Juegos de mesa</a>
 
 
                 </div>
@@ -118,12 +118,12 @@
                        
                     <% if (usuario == undefined){ %>
 
-                          <a class="navek" href="/users/login">Iniciar Sesion</a>
+                          <a class="navek loslinks" href="/users/login">Iniciar Sesion</a>
                           <% } %>
 
 
                            <% if (usuario != undefined){ %>
-                            <a class="navek" href="/users/cerrar">Cerrar Sesion</a>
+                            <a class="navek loslinks" href="/users/cerrar">Cerrar Sesion</a>
                             
                             
 
@@ -134,7 +134,7 @@
                      
 
 
-                    <a class="navek" href="/users/register">Registrarse</a>
+                    <a class="navek loslinks" href="/users/register">Registrarse</a>
 
 
 

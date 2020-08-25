@@ -14,7 +14,7 @@
 
 <form id="formulario" action="/admin/edit/<%= producto.id %>" method="POST" enctype="multipart/form-data" >
     <div class="form-row">
-      <div class="form-group col-md-9">
+      <div class="form-group col-md-5">
         <label for="inputEmail4">Nombre del producto</label>
         <input type="text" class="form-control" id="inputEmail4" name="name" autocomplete="off" value="<%= producto.name %> ">
         <span id="errorName" class="ocultar" style="color: red;opacity: 0.7; font-size: 13px;font-weight: 600;" >*Tiene que tener al menos 5 caracteres*</span>
@@ -23,6 +23,40 @@
         <label for="inputPassword4">Precio del producto:</label>
         <input type="text" class="form-control" id="inputPassword4" name="price" value="<%= producto.price %> " >
       </div>
+
+      <% if (producto.offer == "on")  { %> 
+
+      <div class="form-group col-md-3"> 
+        <div class="form-group">
+          <label for="disabledTextInput">Precio oferta</label>
+          <input type="text"  name="newprice" id="precioNuevo" value="<%= producto.newprice %>" class="form-control"  required>  
+        </div>
+     
+      </div>
+      <div class="form-group col-md-1" >
+        <div class="custom-control custom-switch">
+          <input type="checkbox" name="offer" checked class="custom-control-input" id="customSwitch1">
+          <label class="custom-control-label" for="customSwitch1">Oferta</label>
+        </div>
+      </div>
+      <% } else { %>
+      <div class="form-group col-md-3"> 
+        <div class="form-group">
+          <label for="disabledTextInput">Precio oferta</label>
+          <input type="text"  name="newprice" id="precioNuevo" disabled class="form-control" >
+        </div>
+     
+      </div>
+      <div class="form-group col-md-1" >
+        <div class="custom-control custom-switch">
+          <input type="checkbox" name="offer" class="custom-control-input" id="customSwitch1">
+          <label class="custom-control-label" for="customSwitch1">Oferta</label>
+        </div>
+      </div>
+
+
+      <% } %>
+
     </div>
     <div class="form-row">
     <div class="form-group col-md-6 ">

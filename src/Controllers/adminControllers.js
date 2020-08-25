@@ -61,18 +61,21 @@ adminControllers = {
     update: function (req, res, next) {
 
         var errors = (validationResult(req))
-       console.log(errors)
-       console.log(req.body.name)
-        
-       /*  if( errors.isEmpty()){ */
+      
+       
+        if( errors.isEmpty()){
            
         if(req.files.filename != undefined){
+        
+               
             db.products.update({
                 name : req.body.name ,
                 price : req.body.price ,
                 description : req.body.description ,
                 image : req.files[0].filename ,
-                category  : req.body.category
+                category  : req.body.category,
+                offer : req.body.offer,
+                newprice : req.body.newprice
             } , {
                 where : {
                     id : req.params.id
@@ -86,8 +89,10 @@ adminControllers = {
                 name : req.body.name ,
                 price : req.body.price ,
                 description : req.body.description ,
-                
-                category  : req.body.category
+                offer : req.body.offer,
+                category  : req.body.category,
+                newprice : req.body.newprice
+
             } , {
                 where : {
                     id : req.params.id
@@ -96,7 +101,7 @@ adminControllers = {
     
              res.redirect('/admin')
         }
-    /* } else {
+    } else {
         db.products.findByPk(req.params.id)
       .then(function(producto){
 
@@ -110,7 +115,7 @@ adminControllers = {
    
         
     
-    } */
+    }
 
     
 
@@ -149,17 +154,30 @@ console.log(req.files)
 
 
         res.redirect("/") */
-        var errors = validationResult(req)
-        console.log(errors)
 
+
+        var errors = validationResult(req)
+
+       
+        if( errors.isEmpty()){
+            
         db.products.create({
             name : req.body.name ,
             price : req.body.price ,
             description : req.body.description ,
             image : req.files[0].filename ,
-            category  : req.body.category
-
+            category  : req.body.category,
+            offer : req.body.offer,
+            newprice : req.body.newprice
         })
+    } else {
+        res.render('admin/productsAlta', {
+            usuario: req.session.usuario,
+            errores : errors.errors
+            
+        })
+
+    }
 
         res.redirect("/admin") 
 

@@ -25,8 +25,12 @@
           <h1 style="font-size: 30px; " class="card-title pt-2"  > <%= producto.name %> </h1>
 
           <!--  <span style="font-size: 16px;" class="text-success " ><strike>$ </strike> /  OFF</span> -->
+          <% if (producto.offer == "on")  { %> 
+            <span><strike> $<%= toThousand(producto.price) %> </strike></span>
+            <h1 style="font-size: 35px;" class="card-title py-2 rem2"> <b>  $<%= toThousand(producto.newprice) %> </b></h1>
+            <% } else {%>
           <h1 style="font-size: 35px;" class="card-title py-2 rem2"> <b> $<%= toThousand(producto.price) %> </b></h1>
-
+            <%}%>
 
 
           <!--  <h1 style="font-size: 50px;"  class="card-title py-4 rem2">$</h1> -->
@@ -108,6 +112,35 @@
       
     </div>
   </div>
+
+</div>
+
+<div class="container">
+<div class="d-flex justify-content-center p-5">
+  <h3>¡Ofertas!</h3>
+</div >
+<div class="row">
+
+  <% for (let prod of ofertas){ %>
+
+    
+
+  <div class="col-lg-3 col-md-6 mb-4">
+    <div class="card h-100">
+      <div style="height: 75%;">
+      <a href=""><img class="card-img-top prodImg" style="height: 100%;" src="/images/<%= prod.image %> " alt=""></a>
+    </div>
+      <div class="card-body">
+        <h4 class="card-title">
+          <a href="http://localhost:3000/products/detail/<%= prod.id %>"><%= prod.name %> </a>
+        </h4>
+        <h5><%= prod.price %></h5>
+      </div>
+    </div>
+  </div>
+  <% } %> 
+
+</div>
 
 </div>
 

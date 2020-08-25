@@ -1,5 +1,9 @@
 
 
+
+
+
+
 var edit = {
     name : "",
     description : ""
@@ -13,6 +17,20 @@ window.addEventListener("load" , function(){
 let formulario = document.querySelector("#formulario")
 
 let errorName = document.querySelector("#errorName")
+
+let precioNuevo = document.getElementById("precioNuevo")
+
+let check = document.getElementById("customSwitch1").onchange = inhabilitar
+
+
+
+function inhabilitar(){
+
+    precioNuevo.disabled = !precioNuevo.disabled
+}
+
+
+
 
 
 

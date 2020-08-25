@@ -27,7 +27,7 @@ router.get('/search', controllerIdex.search)
 
 
 //Rutas de Footer
-
+router.post('/emails', controllerIdex.emailOfert)
 router.get('/contact', controllerIndex.contact)
 router.get('/envios', controllerIndex.envios)
 router.get('/quienes', controllerIndex.quienes)
