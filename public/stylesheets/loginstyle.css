@@ -94,7 +94,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
 }
-<<<<<<< HEAD
 .div #record {
   position: relative;
   display: flex;
@@ -108,7 +107,6 @@ body {
   -moz-osx-font-smoothing: grayscale; 
   
 }
-=======
 
 
 .dnone {
@@ -126,4 +124,3 @@ body {
 .mtop {
   margin-top: .6rem;
 }
->>>>>>> 48c7cfd5bea60b7af04709c231e09c213035ba4c

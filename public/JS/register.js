@@ -1,21 +1,20 @@
+alert('hola')
 window.addEventListener('load', function() {
-    let formulario = document.getElementById("form")
+    //let formulario = document.getElementById("form")
 
      
 
-    let campoName = formulario.name.addEventListener
+    let campoName = document.getElementById("name");
     let campoEmail = document.getElementById("email");
     let campoPassword = document.getElementById("password");
 
-    let errorName = document.getElementsByClassName('errorName');
-    let errorEmail = document.getElementsByClassName('errorEmail');
-    let errorPassword = document.getElementsByClassName('errorPassword');
-
+    let errorName = document.getElementsByClassName('errorName')[0];
+    let errorEmail = document.getElementsByClassName('errorEmail')[0];
+    let errorPassword = document.getElementsByClassName('errorPassword')[0];
+    let errores = 0;
     formulario.addEventListener("submit", function(e){
-      e.preventDefault();
-
-        let errores = 0;
-
+      //e.preventDefault();
+   
         if (campoName.value  == ""){
             errorName.style.visibility = 'visible';
             errores = errores + 1;
@@ -24,7 +23,7 @@ window.addEventListener('load', function() {
             errorEmail.style.visibility = 'visible';
             errores = errores + 1;
           }   
-        if (campoPassword.value  == "" || campoName.value.length < 8) {
+        if (campoPassword.value  == "" || campoName.value.length < 9) {
             errorPassword.style.visibility = 'visible';
             errores = errores + 1;
           }  
