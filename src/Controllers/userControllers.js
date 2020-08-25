@@ -127,7 +127,7 @@ userControllers = {
 
 
                 if (estaRegistrado) {
-                    res.redirect("/users/login")
+                    res.redirect("/users/register")
                
                 } else {
 

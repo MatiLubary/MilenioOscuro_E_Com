@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const userControllers = require ('../Controllers/userControllers')
 let {check, validationResult, body} = require ('express-validator')
-const users = require("../data/users.json")
+
 
 
 
