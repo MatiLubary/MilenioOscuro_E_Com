@@ -1,52 +1,61 @@
-alert('hola')
-window.addEventListener('load', function() {
-    //let formulario = document.getElementById("form")
-
-     
-
-    let campoName = document.getElementById("name");
-    let campoEmail = document.getElementById("email");
-    let campoPassword = document.getElementById("password");
-
-    let errorName = document.getElementsByClassName('errorName')[0];
-    let errorEmail = document.getElementsByClassName('errorEmail')[0];
-    let errorPassword = document.getElementsByClassName('errorPassword')[0];
-    let errores = 0;
-    formulario.addEventListener("submit", function(e){
-      //e.preventDefault();
-   
-        if (campoName.value  == ""){
-            errorName.style.visibility = 'visible';
-            errores = errores + 1;
-          } 
-        if ( campoEmail.value  == ""){
-            errorEmail.style.visibility = 'visible';
-            errores = errores + 1;
-          }   
-        if (campoPassword.value  == "" || campoName.value.length < 9) {
-            errorPassword.style.visibility = 'visible';
-            errores = errores + 1;
-          }  
-        if (errores > 0){
-          e.preventDefault();
-        }  
-
-    })
 
 
+const form = document.getElementById('form')
 
+const nameReq = document.getElementById('nameReq')
+const name = document.getElementById('name')
 
-//  check('name').isLength({min:3, max:15}).withMessage('El Nombre debe contener por lo menos 3 letras y maximo 15'),
-//   check('email').isEmail().withMessage('El Email debe ser una direccion valida'),
-//   check('password').isLength({min:8}).withMessage('La contraseña debe contener por lo menos 8 caracteres') ], userControllers.create);
+const emailReq = document.getElementById('emailReq')
+const email = document.getElementById('email')
 
+const pwReq = document.getElementById("pwReq")
+const pw = document.getElementById("pw")
 
+name.addEventListener('textInput', name_Verify)
+email.addEventListener('textInput', email_Verify)
+pw.addEventListener('textInput', pw_Verify)
 
+function validated(){
+    if (name.value === '' || name.value == null){
+    name.style.border = "1px solid red";
+    nameReq.style.display = 'block'
+    name.focus();
+    return false
+    }
+    if (email.value === '' || email.value == null){
+        email.style.border = "1px solid red";
+        emailReq.style.display = 'block'
+        email.focus();
+        return false
+    }
+    if (pw.value === '' || pw.value == null){
+        pw.style.border = "1px solid red";
+        pwReq.style.display = 'block'
+        pw.focus();
+        return false
+    }
+}
 
-   // document.querySelector('body').style.backgroundColor = 'lightskyblue';
-    
-  //  document.querySelector('h2').style.textAlign = 'center';
-    
-    //document.querySelector('h4').style.fontStyle = 'italic';
-    
-    });
+function email_Verify() {
+    if (email.value != '' || email.value != null){
+        email.style.border = "1px solid silver"
+        emailReq.style.display = "none"
+        return true
+    }
+}
+
+function pw_Verify() {
+    if (pw.value != '' || pw.value != null){
+        pw.style.border = "1px solid silver"
+        pwReq.style.display = "none"
+        return true
+    }
+}    
+function name_Verify() {
+    if (name.value != '' || name.value != null){
+          name.style.border = "1px solid silver"
+          nameReq.style.display = "none"
+          return true
+      }    
+
+}

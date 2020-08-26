@@ -21,7 +21,7 @@
   background: #f2f2f2;
   width: 100%;
   border: 0;
-  /* margin: 0 0 15px; */
+  margin: 0 0 15px; 
   padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
@@ -94,21 +94,18 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
 }
-.errorName {
-  color : red;
-  font-size: 12px;
-  margin-top: 0px;
-  visibility: hidden;
+.dnone {
+  display: none;
 }
-.errorEmail {
-  color : red;
+
+.req{
+  color: red;
+  text-align: left;
   font-size: 12px;
-  margin-top: 0px;
-  visibility: hidden;
+  margin-top: -15px;
+
 }
-.errorPassword {
-  color : red;
-  font-size: 12px;
-  margin-top: 0px;
-  visibility: hidden;
+
+.mtop {
+  margin-top: .16rem;
 }
