@@ -54,9 +54,10 @@ constrollersProducts = {
 
           api : function(req, res){
 
-                db.products.findAll()
+                db.products.findAndCountAll()
                 .then(function(result){
-                        res.json(result)
+                        console.log(result.count)
+                        res.json(result.rows)
                 })
           }
 
