@@ -76,7 +76,7 @@
                   <a style="font-size: 17px;color: black;" href="/products/detail/<%= product.id %>"><%= product.name %></a>
                 </h4>
                 <% if (product.offer == "on")  { %> 
-                <h5 style="float: left;font-size: 24px;">$<%= product.newprice %></h5>
+                <h5 style="float: left;font-size: 24px;">$<%= toThousand(product.newprice) %></h5>
                 <div class="d-flex justify-content-end">
                 <span class="badge badge-success">¡Oferta!</span>
               </div>
