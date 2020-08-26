@@ -56,7 +56,7 @@ constrollersProducts = {
 
                 db.products.findAndCountAll()
                 .then(function(result){
-                        console.log(result.count)
+                        
                         res.json(result.rows)
                 })
           }

@@ -28,6 +28,11 @@ let cols = {
          type : dataTypes.STRING
     },
 
+    imagetwo : {
+            
+        type : dataTypes.STRING
+    },
+
     category : {
         type : dataTypes.STRING
    },

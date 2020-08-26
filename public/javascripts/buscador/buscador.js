@@ -20,12 +20,12 @@ window.addEventListener("load", function(){
     
 })
 
-    /* buscador.addEventListener("blur", function(){
+    buscador.addEventListener("blur", function(){
           sugBusqueda.classList.toggle("ocultar")
         
       
     })
-  */
+ 
 
 
 
@@ -79,7 +79,7 @@ return result.json()
 
             })
 
-            item.addEventListener("click", function(){
+            item.addEventListener("mouseover", function(){
                 document.getElementById("searchBuscador").value =item.innerHTML
             
             

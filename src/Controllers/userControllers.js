@@ -52,13 +52,14 @@ userControllers = {
                 if (usuario) {
                     let contrasenia =    bcrypt.compareSync( req.body.password , usuario.password )
                     if(contrasenia){
-                        console.log(contrasenia)
+                        
                     req.session.usuario = usuario
 
                     if (req.body.recordame != undefined) {
 
-                        res.cookie('recordame', {
+                        res.cookie('recordame', req.body.email, {
                             maxAge: 60000
+                        
                         })
 
                     }
@@ -167,9 +168,9 @@ userControllers = {
 
     cerrarSesion: function (req, res, ) {
 
-        req.session.usuario = undefined
-
-        req.cookies.recordame = undefined
+        req.session.destroy()
+        
+        res.clearCookie("recordame")
 
         res.redirect("/")
     }
