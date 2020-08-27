@@ -4,7 +4,11 @@ const fs = require('fs')
 const productsFilePath = path.join(__dirname, '../data/productos.json');
 const db = require('../../db/models')
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-let {check, validationResult, body} = require ('express-validator') 
+let {
+    check,
+    validationResult,
+    body
+} = require('express-validator')
 
 
 adminControllers = {
@@ -12,14 +16,17 @@ adminControllers = {
 
     products: function (req, res) {
 
-       /*  res.render('admin/adminProducts', {
-            productos: archivo
-        }) */
+        /*  res.render('admin/adminProducts', {
+             productos: archivo
+         }) */
 
-           db.products.findAll()
-           .then(function(productos){
-               res.render('admin/adminProducts' , {productos : productos , toThousand})
-           })
+        db.products.findAll()
+            .then(function (productos) {
+                res.render('admin/adminProducts', {
+                    productos: productos,
+                    toThousand
+                })
+            })
 
 
     },
@@ -36,92 +43,84 @@ adminControllers = {
         }) */
 
 
-   
-      db.products.findByPk(req.params.id)
-      .then(function(producto){
 
-        res.render('admin/editProduct', {
-            usuario: req.session.usuario,
-            producto: producto,
-            
-        })
-      })
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+        db.products.findByPk(req.params.id)
+            .then(function (producto) {
+
+                res.render('admin/editProduct', {
+                    usuario: req.session.usuario,
+                    producto: producto,
+
+                })
+            })
+
+
+
+
+
+
+
+
+
+
     },
 
     update: function (req, res, next) {
 
-        var errors = (validationResult(req))
-      
-       
-        if( errors.isEmpty()){
-           
-        if(req.files.filename != undefined){
         
-               
-            db.products.update({
-                name : req.body.name ,
-                price : req.body.price ,
-                description : req.body.description ,
-                image : req.files[0].filename ,
-                category  : req.body.category,
-                offer : req.body.offer,
-                newprice : req.body.newprice
-            } , {
-                where : {
-                    id : req.params.id
-                }
-            })
+
+          if(req.body.offer != undefined){
+            var oferta = "on"
+          }else {
+              var oferta = "off"
+          }
     
-             res.redirect('/admin')
+
+        var errors = (validationResult(req))
+
+
+        if (errors.isEmpty()) {
+
+            let product = {
+                name: req.body.name,
+                price: req.body.price,
+                description: req.body.description,
+                category: req.body.category,
+                offer: oferta,
+                newprice: req.body.newprice
+            }
+
+            if (req.files[0] != undefined) {
+                product.image = req.files[0].filename
+            }
+            db.products.update(
+                product, {
+                    where: {
+                        id: req.params.id
+                    }
+                })
+
+            res.redirect('/admin')
 
         } else {
-            db.products.update({
-                name : req.body.name ,
-                price : req.body.price ,
-                description : req.body.description ,
-                offer : req.body.offer,
-                category  : req.body.category,
-                newprice : req.body.newprice
+            db.products.findByPk(req.params.id)
+                .then(function (producto) {
 
-            } , {
-                where : {
-                    id : req.params.id
-                }
-            })
-    
-             res.redirect('/admin')
+                    res.render('admin/editProduct', {
+                        usuario: req.session.usuario,
+                        producto: producto,
+                        errores: errors.errors
+
+                    })
+                })
+
         }
-    } else {
-        db.products.findByPk(req.params.id)
-      .then(function(producto){
-
-        res.render('admin/editProduct', {
-            usuario: req.session.usuario,
-            producto: producto,
-            errores : errors.errors
-            
-        })
-      })
-   
-        
-    
-    }
-
-    
 
 
 
-        
+
+
+
     },
 
     create: function (req, res) {
@@ -158,28 +157,31 @@ console.log(req.files)
 
         var errors = validationResult(req)
 
-       
-        if( errors.isEmpty()){
-            
-        db.products.create({
-            name : req.body.name ,
-            price : req.body.price ,
-            description : req.body.description ,
-            image : req.files[0].filename ,
-            category  : req.body.category,
-            offer : req.body.offer,
-            newprice : req.body.newprice
-        })
-    } else {
-        res.render('admin/productsAlta', {
-            usuario: req.session.usuario,
-            errores : errors.errors
-            
-        })
 
-    }
+        if (errors.isEmpty()) {
 
-        res.redirect("/admin") 
+            console.log(req.files)
+
+            db.products.create({
+                name: req.body.name,
+                price: req.body.price,
+                description: req.body.description,
+                image: req.files[0].filename,
+                imagetwo: req.files[1].filename,
+                category: req.body.category,
+                offer: req.body.offer,
+                newprice: req.body.newprice
+            })
+        } else {
+            res.render('admin/productsAlta', {
+                usuario: req.session.usuario,
+                errores: errors.errors
+
+            })
+
+        }
+
+        res.redirect("/admin")
 
 
 
@@ -194,12 +196,12 @@ console.log(req.files)
     delete: function (req, res) {
 
         db.products.destroy({
-            where : {
-                id : req.params.id
+            where: {
+                id: req.params.id
             }
         })
 
-         res.redirect("/admin")
+        res.redirect("/admin")
     }
 
 

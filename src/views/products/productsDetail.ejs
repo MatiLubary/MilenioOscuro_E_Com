@@ -11,7 +11,10 @@
   <div class="card mt-5 " style="max-width: 100%; border-radius: 0 !important; /* box-shadow: 1px 1px 6px grey */">
     <div class="row no-gutters">
       <div class="col-md-8">
-        <img id="imagenDelProducto" src="/images/<%= producto.image %> " class="card-img" style="width: 72%; height: 90%; margin-left: 12%;"
+
+      
+<%if( producto.imagetwo == null){ %>
+    <img id="imagenDelProducto" src="/images/<%= producto.image %> " class="card-img" style="width: 72%; height: 90%; margin-left: 12%;"
           alt="...">
         <div>
           <h3 style="font-size: 17px;" class="mx-5 py-4"> </h3>
@@ -19,6 +22,33 @@
 
 
         </div>
+
+  <% } else { %> 
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active " data-interval= "0">
+          <img src="/images/<%= producto.image %>" class="d-block w-100 " style="width: 72%; height: 90%;margin-top: 10%; " alt="...">
+        </div>
+        <div class="carousel-item" data-interval= "0">
+          <img src="/images/<%= producto.imagetwo %>" class="d-block w-100" style="width: 72%; height: 90%; margin-top: 10%;  " alt="...">
+        </div>
+        
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only" style="color: black;">Next</span>
+      </a>
+    </div>
+
+    <% }  %> 
+
+      
+        
+       
       </div>
       <div style="border-left: rgb(219, 217, 217) 1px solid; " class="col-md-4">
         <div class="card-body">
