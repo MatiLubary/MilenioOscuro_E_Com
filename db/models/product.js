@@ -70,7 +70,7 @@ let config = {
   product.associate = function(models){
       product.belongsToMany(models.carts , {
           as : "carts",
-          through: "carts_products",
+          through: models.cartsProducts,
           foreignKey : "product_id",
           otherKey : "cart_id",
           timestamps: true

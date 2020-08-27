@@ -283,12 +283,15 @@ res.render('index/cart', {
                 })
                 .then(function(carro){
                     for (let num of noEliminados){
-                        db.products.findByPk(num.id)
+                        console.log(num)
+                        db.products.findByPk(num.id)                                              
                         .then(function(product){
-                            console.log(product)
-                            carro.addProducts(product, {through : {
+                            if(product.id == num.id){
+                                var laCantidad = num.cantidad
+                            }
+                        carro.addProducts(product, {through : {
                                 price: product.price,
-                                qty : product.cantidad
+                                qty : laCantidad
                             }})
                         })
                     }
