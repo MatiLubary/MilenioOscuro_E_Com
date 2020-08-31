@@ -2,7 +2,11 @@
   "development": {
     "username": "root",
     "password": null,
+<<<<<<< HEAD
     "database": "basedeprueba",
+=======
+    "database": "e_com",
+>>>>>>> 15ad624ef59935dae912cb434cead0f7be78edbc
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
