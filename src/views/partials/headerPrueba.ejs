@@ -78,8 +78,18 @@
                         <span> <%= usuario.username %> 
                         </span><!-- </i> -->
                         <% } %>
+
+                        <% if ( prodEnCarrito > 0){ %>
+
                     <a class="navek loslinks" href="/cart"><i class="fas fa-shopping-cart d-flex justify-content-center align-items-center "> <span> Carrito
+                        </span><span id="iconoProdEnCarrito" class="badge badge-danger"><%= prodEnCarrito %> </span></i></a>
+                        <% } else { %>
+
+                        <a class="navek loslinks" href="/cart"><i class="fas fa-shopping-cart d-flex justify-content-center align-items-center "> <span> Carrito
                         </span></i></a>
+                        <% } %>
+
+
                         <div  id="main">
                             <button class="openbtn " onclick="openNav()"><i id="menuTablet" style="font-size: 24px;"
                                 class="fas fa-bars d-flex justify-content-center align-items-center"></i> </button>  

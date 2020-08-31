@@ -29,7 +29,7 @@ constrollersProducts = {
                      })
                      .then(function(ofertas){
                              var prodRelacionados = ofertas
-                             res.render('products/productsDetail', {  producto: resultado , usuario : req.session.usuario ,toThousand , ofertas : prodRelacionados })
+                             res.render('products/productsDetail', {  producto: resultado , usuario : req.session.usuario ,toThousand , ofertas : prodRelacionados ,prodEnCarrito :  req.session.cantProdCarro })
                         })
                                  
 

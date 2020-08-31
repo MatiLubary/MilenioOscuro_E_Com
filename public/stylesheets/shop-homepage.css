@@ -75,8 +75,10 @@ margin-left: 12px
 }
 
 .bannerImg {
-  width: 1400px;
-  height: 450px;
+  /* width: 1400px; */
+  /* height: 450px; */
+  height: 340px;
+  width: 100%;
 }
 
 

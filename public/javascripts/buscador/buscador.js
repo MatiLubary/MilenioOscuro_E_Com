@@ -16,12 +16,12 @@ window.addEventListener("load", function(){
 
 
  buscador.addEventListener("focus" , function(){
-    sugBusqueda.classList.toggle("ocultar")
+    sugBusqueda.classList.remove("ocultar")
     
 })
 
     buscador.addEventListener("blur", function(){
-          sugBusqueda.classList.toggle("ocultar")
+          sugBusqueda.classList.add("ocultar")
         
       
     })
@@ -48,7 +48,7 @@ return result.json()
         
         for(let titulo of allTitle){
 
-           
+          
             
                 if (titulo.name.toLowerCase().indexOf(buscador.value.toLowerCase()) == 0){
 
@@ -66,6 +66,12 @@ return result.json()
          if( busquedasRealizadas.innerHTML == ""){
              busquedasRealizadas.innerHTML += `<tr><th class="items">No se encontro el producto...</th></tr>`
          }
+
+       if(buscador.value == ""){
+        sugBusqueda.classList.add("ocultar")
+       }else{
+        sugBusqueda.classList.remove("ocultar")
+       }
 
          opciones = document.querySelectorAll("th")
          for(let item of opciones){

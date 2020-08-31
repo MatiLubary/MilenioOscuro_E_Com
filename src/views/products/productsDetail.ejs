@@ -27,11 +27,15 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active " data-interval= "0">
-          <img src="/images/<%= producto.image %>" class="d-block w-100 " style="width: 72%; height: 90%;margin-top: 10%; " alt="...">
+          <div class="d-flex justify-content-center">
+          <img src="/images/<%= producto.image %>" class="d-block  " style="width: 72%; height: 90%;" alt="...">
+        </div>
         </div>
         <div class="carousel-item" data-interval= "0">
-          <img src="/images/<%= producto.imagetwo %>" class="d-block w-100" style="width: 72%; height: 90%; margin-top: 10%;  " alt="...">
+          <div class="d-flex justify-content-center">
+          <img src="/images/<%= producto.imagetwo %>" class="d-block " style="width: 72%; height: 90%; margin-top: 10%;  " alt="...">
         </div>
+      </div>
         
       </div>
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -155,24 +159,35 @@
 
     
 
-  <div class="col-lg-3 col-md-6 mb-4">
-    <div class="card h-100">
-      <div style="height: 75%;">
-      <a href=""><img class="card-img-top prodImg" style="height: 100%;" src="/images/<%= prod.image %> " alt=""></a>
-    </div>
-      <div class="card-body">
-        <h4 class="card-title">
-          <a href="http://localhost:3000/products/detail/<%= prod.id %>"><%= prod.name %> </a>
-        </h4>
-        <h5><%= prod.price %></h5>
+    <div class="col-lg-3 col-md-6 mb-4 ">
+      <div class="card h-100" style="height: 84%!important;">
+        <div style="height: 78%;">
+        <a href=   "/products/detail/<%= prod.id %>"><img  class="card-img-top prodImg" style="height: 100%;" src="/images/<%= prod.image %>" alt=""></a>
+      </div>
+        <div  class="card-body" style="padding: 8px;">
+          <h4 class="card-title">
+            <a style="font-size: 17px;color: black;" href="/products/detail/<%= prod.id %>"><%= prod.name %></a>
+          </h4>
+          <% if (prod.offer == "on")  { %> 
+          <h5 style="float: left;font-size: 24px;">$<%= toThousand(prod.newprice) %></h5>
+          <div class="d-flex justify-content-end">
+          <span class="badge badge-success">¡Oferta!</span>
+        </div>
+          <% } else { %>
+            <h5 style="font-size: 24px;">$<%= toThousand(prod.price) %></h5>
+            <% }%>
+        </div>
+       
       </div>
     </div>
-  </div>
   <% } %> 
 
 </div>
 
 </div>
+
+
+
 
 
 
