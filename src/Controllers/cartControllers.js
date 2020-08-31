@@ -9,177 +9,14 @@ var precioFinal
 var noEliminados = []
 
 
+
 let cartControllers = {
 
-   /*  home : function(req, res){
-
-
-
-      
-
-        db.products.findAll()
-        .then(function(result){
-            var carritoActual = result.filter(function(product){
-                      if ( numero.includes(product.id)){
-                          return product
-                      }
-              
-            })
-
-            let totalCarro = carritoActual.reduce(function (acum, precio) {
-                return acum + precio.price
-              }, 0)
-
-req.session.carroAPagar = carritoActual
-
-
-            
-
-              res.render('index/cart', {
-                productos: carritoActual,
-                usuario: req.session.usuario,
-                totalCarrito: totalCarro
-              })
-
-        })
-
-
-
-
-        
-    },
-
-    
-
-     store : function(req ,res){
-
-
-        numero.push(parseInt(req.body.idProducto))
-       
-
-        if( req.session.usuario != undefined){
-            res.send("hay usuario")
-        } else {
-            
-            res.send("no hay usuario")
-        }
-
    
-        
-    },
-
-    pay : function(req, res){
-       
-        if( req.session.usuario != undefined){
-            
-            db.users.findOne({
-                where : {
-                    email : req.session.usuario.email
-                }
-            })
-            .then(function(usuario){
-               db.carts.findAll({
-                   where : {
-                       users_id : usuario.id
-                   }
-               })
-               .then(function(carrito){
-                   
-                   if(carrito == ""){
-                    db.carts.create({
-                        users_id: usuario.id,
-                        total: 0
-                    })
-
-                 /*    db.carts.findByPk(usuario.id)
-                    .then(function(carro){
-
-                    }) */
-
-                /*   console.log(req.session.carroAPagar)
-
-                    
-
-
-                   } else {
-                    
-                    db.carts.findOne({
-                        where : {
-                            users_id: usuario.id
-                        }
-                    })
-                    .then(function(carro){
-                        for (let num of numero){
-                            db.products.findByPk(num)
-                            .then(function(product){
-                                carro.addProducts(product)
-                            })
-                        }
-                        
-                    })
-                      
-                    
-                    
-                    res.send("tiene carrito")
-                   }
-               })
-            })
-
-
-
-
-        } else {
-            
-            res.send("no hay usuario")
-        }
-    },
-
-    delete : function(req, res){
-
-        if( req.session.usuario != undefined){
-
-            db.users.findOne({
-                where : {
-                    email : req.session.usuario.email
-                }
-            }) 
-            .then(function(usuario){
-
-            db.carts.findOne({
-                where : {
-                    users_id: usuario.id
-                }
-            })
-            .then(function(carro){
-                carro.removeProducts(req.params.id)
-                res.redirect("/")
-            })
-        })
-
-        let losQueQuedan =   numero.filter(function(borrado){
-            return borrado != req.params.id
-        })
-
-        numero = losQueQuedan
-
-        } else {
-
-      
-
-        
-      let losQueQuedan =   numero.filter(function(borrado){
-            return borrado != req.params.id
-        })
-
-        numero = losQueQuedan
-    
-        res.send(numero)
-       }
-    } */
 
  home : function(req ,res){
 
-    
+    req.session.cantProdCarro =  noEliminados.length
 
 
       var totalCarro = noEliminados.reduce(function (acum, precio) {
@@ -194,6 +31,7 @@ res.render('index/cart', {
     productos: noEliminados,
     usuario: req.session.usuario,
     totalCarrito: totalCarro,
+    prodEnCarrito : req.session.cantProdCarro,
     toThousand
   })
 
@@ -211,10 +49,19 @@ res.render('index/cart', {
    })
    .then(function(producto){
        for (let prod of producto){
-      var precioVerdadero =   prod.price * req.body.qty
-      var precioOriginal = prod.price
+
+        if( prod.offer == "on"){
+            var precioVerdadero =   prod.newprice * req.body.qty
+      var precioOriginal = prod.newprice
+        } else {
+            var precioVerdadero =   prod.price * req.body.qty
+            var precioOriginal = prod.price
+        }
+     
        }
     producto.forEach(function(cucu){
+        console.log(precioVerdadero , precioOriginal)
+        
         cucu.price = precioVerdadero
         cucu.cantidad = req.body.qty
         cucu.priceOriginal = precioOriginal
@@ -328,7 +175,7 @@ res.render('index/cart', {
         })
         .then(function(carro){
             carro.removeProducts(req.params.id)
-            res.redirect("/")
+            res.redirect("/cart")
         })
     })
 
@@ -341,7 +188,7 @@ res.render('index/cart', {
     noEliminados = alFin
 
     
-     res.redirect("/")
+     res.redirect("/cart")
 
 } else {
     let alFin = noEliminados.filter(function(prod){
@@ -351,7 +198,7 @@ res.render('index/cart', {
     noEliminados = alFin
 
     
-     res.redirect("/")
+     res.redirect("/cart")
 }
 
  },

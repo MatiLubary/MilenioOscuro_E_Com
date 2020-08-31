@@ -58,6 +58,13 @@ tr .items {
     
 }
 
+#iconoProdEnCarrito {
+    position: absolute;
+    margin-bottom: 31px;
+    margin-right: 36px;
+    border-radius: 19px;
+}
+
 #desplegable {
     display: none;
 }
@@ -175,9 +182,9 @@ span {
         padding-right: 5px;
     }
 
-   .carousel-inner {
+  /*  .carousel-inner {
        display: none;
-   }
+   } */
 
 /* #menuTablet {
     display: none !important;
@@ -193,7 +200,9 @@ span {
     /* #busqSoloDestk{
         display: none;
     } */
-
+    #iconoProdEnCarrito {
+        margin-left: 47px;
+    }
 
    #iconoAvatar {
        width: 27.5%;

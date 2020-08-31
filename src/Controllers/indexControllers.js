@@ -11,13 +11,13 @@ controllerIndex = {
 
   home: function (req, res, next) {
 
-    
+    console.log(req.session.cantProdCarro)
 
     let prodsCategoriaX = products.filter(product => product.category == req.query.categoria)
 
     let cat = req.query.categoria
 
-
+    
 
     if (req.query.categoria) {
 
@@ -35,9 +35,11 @@ controllerIndex = {
             nextUrl : '/?page=' + (req.query.page ? Number(req.query.page)+ 1 : 1),
             prevUrl :  '?page=' + (req.query.page ? Number(req.query.page) - 1 : 0),
             lastUrl : '?page=' + (parseInt(products.count / 8) - 1)
+            
             },
           cat,
           usuario: req.session.usuario,
+          prodEnCarrito : req.session.cantProdCarro,
           toThousand
         })
       })
@@ -49,8 +51,7 @@ controllerIndex = {
       offset: Number(req.query.page)*8 || 0,
       limit: 8, })
       .then(function (products) {
-        console.log(products)
-        res.render('index', {
+            res.render('index', {
           products: products.rows,
           pagination: {
             firstUrl: '/',
@@ -59,6 +60,7 @@ controllerIndex = {
             lastUrl : '?page=' + (parseInt(products.count / 8) - 1)
             },
           usuario: req.session.usuario,
+          prodEnCarrito : req.session.cantProdCarro,
           toThousand
 
         })
@@ -101,22 +103,26 @@ controllerIndex = {
 
   contact: function (req, res, next) {
     res.render('index/contact', {
-      usuario: req.session.usuario
+      usuario: req.session.usuario,
+      prodEnCarrito : req.session.cantProdCarro
     })
   },
   envios: function (req, res, next) {
     res.render('index/envios', {
-      usuario: req.session.usuario
+      usuario: req.session.usuario,
+      prodEnCarrito : req.session.cantProdCarro
     })
   },
   quienes: function (req, res, next) {
     res.render('index/quienes', {
-      usuario: req.session.usuario
+      usuario: req.session.usuario,
+      prodEnCarrito : req.session.cantProdCarro
     })
   },
   metodopago: function (req, res, next) {
     res.render('index/metodopago', {
-      usuario: req.session.usuario
+      usuario: req.session.usuario,
+      prodEnCarrito : req.session.cantProdCarro
     })
   }
 

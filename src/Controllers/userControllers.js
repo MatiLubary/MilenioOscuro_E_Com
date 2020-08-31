@@ -20,7 +20,8 @@ userControllers = {
 
 
         res.render('users/login', {
-            usuario: req.session.usuario
+            usuario: req.session.usuario,
+            prodEnCarrito : req.session.cantProdCarro
         })
 
 
@@ -72,7 +73,8 @@ userControllers = {
                         errors: [{
                             msg: 'invalid credentials'
                         }],
-                        usuario: req.session.usuario
+                        usuario: req.session.usuario,
+                        prodEnCarrito : req.session.cantProdCarro
                     });
                 }
             }
@@ -109,7 +111,8 @@ userControllers = {
 
 
         res.render('users/register', {
-            usuario: req.session.usuario
+            usuario: req.session.usuario,
+            prodEnCarrito : req.session.cantProdCarro
         })
     },
 
@@ -149,7 +152,8 @@ userControllers = {
                     } else {
                         return res.render('users/register', {
                             errors: errors.errors,
-                            usuario: req.session.usuario
+                            usuario: req.session.usuario,
+                            prodEnCarrito : req.session.cantProdCarro
                         })
                     }
                 }
@@ -162,7 +166,8 @@ userControllers = {
 
 
         res.render('users/profile', {
-            usuario: req.session.usuario
+            usuario: req.session.usuario,
+            prodEnCarrito : req.session.cantProdCarro
         })
     },
 

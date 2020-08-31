@@ -50,6 +50,7 @@ adminControllers = {
                 res.render('admin/editProduct', {
                     usuario: req.session.usuario,
                     producto: producto,
+                    prodEnCarrito : req.session.cantProdCarro
 
                 })
             })
@@ -92,6 +93,11 @@ adminControllers = {
 
             if (req.files[0] != undefined) {
                 product.image = req.files[0].filename
+
+            }
+            if (req.files[1] != undefined) {
+                product.imagetwo = req.files[1].filename
+                
             }
             db.products.update(
                 product, {
@@ -109,7 +115,8 @@ adminControllers = {
                     res.render('admin/editProduct', {
                         usuario: req.session.usuario,
                         producto: producto,
-                        errores: errors.errors
+                        errores: errors.errors,
+                        prodEnCarrito : req.session.cantProdCarro
 
                     })
                 })
@@ -128,7 +135,8 @@ adminControllers = {
 
 
         res.render('admin/productsAlta', {
-            usuario: req.session.usuario
+            usuario: req.session.usuario,
+            prodEnCarrito : req.session.cantProdCarro
         })
 
 
@@ -175,7 +183,8 @@ console.log(req.files)
         } else {
             res.render('admin/productsAlta', {
                 usuario: req.session.usuario,
-                errores: errors.errors
+                errores: errors.errors,
+                prodEnCarrito : req.session.cantProdCarro
 
             })
 
