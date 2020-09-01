@@ -332,3 +332,6 @@ span {
   justify-content: flex-end;
 }
 
+.slick-slide {
+    height: 478px !important
+}
