@@ -82,7 +82,14 @@
             <% } %>  
 
           </div>
-          <a href="/cart/payment"><button class="btn btn-primary btn-lg btn-block marg-top_5" type="submit">Continue to checkout</button></a>
+          <a href="/cart/payment"><button class="btn btn-primary btn-lg btn-block 
+            <% if (productos.length == 0) { %>
+              vis_hidden
+              <% } %>
+              <% if (productos.length >= 2) { %>
+                smaller_but
+                <% } %>
+            marg-top_5" type="submit">Continue to checkout</button></a>
         </div>
 <script src="/javascripts/cantidadCarrito.js"></script>
 <%- include('../partials/footerPrueba') %>

@@ -35,7 +35,7 @@
 
       <div class="col-lg-9"> -->
  
-        <div  id="carouselExampleIndicators" class="carousel slide mb-4" data-ride="carousel">
+        <div  id="carouselExampleIndicators" class="carousel slide mb-4 d-noneCel smallerImg4k" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -80,17 +80,10 @@
 
           <% products.forEach(product => { %>
           
-<<<<<<< HEAD
           <div class="col-lg-3 col-md-6 mb-4 ">
             <div class="card h-100" style="height: 84%!important;">
               <div style="height: 78%;">
-              <a href=   "/products/detail/<%= product.id %>"><img  class="card-img-top prodImg" style="height: 100%;" src="/images/<%= product.image %>" alt=""></a>
-=======
-          <div class="col-lg-3 col-md-6 mb-4 my-4">
-            <div class="card h-100" style="height: 110%!important;">
-              <div style="height: 75%;">
-              <a href=   "/products/detail/<%= product.id %>"><img  class="card-img-top prodImg" src="/images/<%= product.image %>" alt=""></a>
->>>>>>> 15ad624ef59935dae912cb434cead0f7be78edbc
+              <a href="/products/detail/<%= product.id %>"><img  class="card-img-top prodImg" style="height: 100%;" src="/images/<%= product.image %>" alt=""></a>
             </div>
               <div  class="card-body" style="padding: 8px;border-top: 1.1px solid #eee;">
                 <h4 class="card-title">
@@ -121,7 +114,7 @@
 
 
     <!-- /.row -->
-      <div class="d-flex justify-content-between marg-top_2">
+      <div class="d-flex justify-content-between marg-top_2 small_txt smaller_txt smallest_txt">
 
             <ul class="pagination">
                <li class="page-item page-link"><a href="<%= pagination.firstUrl %>">Primera Pagina</a></li>
