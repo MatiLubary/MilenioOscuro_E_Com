@@ -7,9 +7,9 @@ let {check, validationResult, body} = require ('express-validator')
 
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+/* router.get('/', function(req, res, next) {
   res.redirect('users/login')
-});
+}); */
 
 router.get('/login', userControllers.login);
 router.post('/login', [
