@@ -335,3 +335,11 @@ span {
 .slick-slide {
     height: 478px !important
 }
+
+.slick-prev:before {
+    filter: invert();
+}
+
+.slick-next:before {
+    filter: invert();
+}

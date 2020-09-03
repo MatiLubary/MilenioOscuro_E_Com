@@ -42,13 +42,27 @@ res.render('index/cart', {
 
  store : function(req, res) { 
 
+   
+
    db.products.findAll({
        where : {
            id : parseInt(req.body.idProducto)
        }
    })
    .then(function(producto){
+
+  let prodDuplicados =   noEliminados.find(function(prodDupli){
+        return prodDupli.id == req.body.idProducto
+    })
+
+    if(prodDuplicados == undefined){
+
+    
+
+ 
        for (let prod of producto){
+
+           
 
         if( prod.offer == "on"){
             var precioVerdadero =   prod.newprice * req.body.qty
@@ -60,24 +74,49 @@ res.render('index/cart', {
      
        }
     producto.forEach(function(cucu){
-        console.log(precioVerdadero , precioOriginal)
+        
+        
         
         cucu.price = precioVerdadero
         cucu.cantidad = req.body.qty
         cucu.priceOriginal = precioOriginal
+        
     })
 
-    console.log(producto)
+   
 
 
     producto.forEach(function(prod){
+      
         noEliminados.push(prod)
     })
-    
-       numero.push(producto)
+
+   /*  let duplicados =    noEliminados.findIndex(item => item.id == req.body.idProducto)
+console.log(duplicados)
+     */
        
        
        res.redirect("/cart")
+    } else {
+
+ let duplicados = noEliminados.findIndex(item => item.id == req.body.idProducto)
+ 
+ noEliminados[duplicados].cantidad = Number(noEliminados[duplicados].cantidad) + (Number(req.body.qty))
+
+ if( noEliminados[duplicados].offer == "on"){
+    noEliminados[duplicados].price =   noEliminados[duplicados].newprice * noEliminados[duplicados].cantidad
+    noEliminados[duplicados].precioOriginal = noEliminados[duplicados].newprice
+} else {
+    noEliminados[duplicados].price =   noEliminados[duplicados].price * noEliminados[duplicados].cantidad
+    noEliminados[duplicados].precioOriginal = noEliminados[duplicados].price
+}
+
+ console.log(noEliminados[duplicados].cantidad)
+    
+
+ res.redirect("/cart")
+    }
+
    })
   
  },
@@ -130,7 +169,7 @@ res.render('index/cart', {
                 })
                 .then(function(carro){
                     for (let num of noEliminados){
-                        console.log(num)
+                        
                         db.products.findByPk(num.id)                                              
                         .then(function(product){
                             if(product.id == num.id){

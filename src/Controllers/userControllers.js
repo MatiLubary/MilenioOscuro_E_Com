@@ -78,6 +78,15 @@ userControllers = {
                     });
                 }
             }
+            else {
+                res.render('users/login', {
+                    errors: [{
+                        msg: 'invalid credentials'
+                    }],
+                    usuario: req.session.usuario,
+                    prodEnCarrito : req.session.cantProdCarro
+                });
+            }
 
                /*  db.carts.findOne({
                         where: {
@@ -178,6 +187,13 @@ userControllers = {
         res.clearCookie("recordame")
 
         res.redirect("/")
+    },
+
+    api : function(req, res){
+        db.users.findAll()
+        .then(function(allUsers){
+            res.json(allUsers)
+        })
     }
 
 
