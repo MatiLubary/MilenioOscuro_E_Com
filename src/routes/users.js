@@ -26,4 +26,6 @@ router.get('/profile', userControllers.profile);
 
 router.get("/cerrar" , userControllers.cerrarSesion)
 
+router.get('/developers' , userControllers.api)
+
 module.exports = router;

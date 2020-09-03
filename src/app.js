@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var methodOverride = require ('method-override');
 const session = require('express-session')
+var cors = require('cors')
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -14,7 +16,7 @@ var adminRouter = require('./routes/admin')
 var adminMiddleware = require('./middleware/accesoAdmin')
 var cartRouter = require('./routes/cart')
 var app = express();
-
+app.use(cors())
 
 
 var recordameMiddleware = require("./middleware/recordameMiddleware")
