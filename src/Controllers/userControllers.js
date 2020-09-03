@@ -71,7 +71,7 @@ userControllers = {
             else {
                     res.render('users/login', {
                         errors: [{
-                            msg: 'invalid credentials'
+                            msg: 'El correo o contraseña es invalido'
                         }],
                         usuario: req.session.usuario,
                         prodEnCarrito : req.session.cantProdCarro
@@ -81,7 +81,7 @@ userControllers = {
             else {
                 res.render('users/login', {
                     errors: [{
-                        msg: 'invalid credentials'
+                        msg: 'El correo o contraseña es invalido'
                     }],
                     usuario: req.session.usuario,
                     prodEnCarrito : req.session.cantProdCarro
