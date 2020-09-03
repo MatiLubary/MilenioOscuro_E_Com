@@ -229,7 +229,7 @@ margin-left: 12px
 .smaller_but {
   margin-right: auto;
   margin-left: auto;
-  width: 55% !important;
+  width: 65% !important;
 }
 
 @media (min-width: 2560px) {
