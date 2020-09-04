@@ -13,7 +13,7 @@ const bcrypt = require('bcrypt');
 
 userControllers = {
 
-    login: function (req, res) {
+    login: function (req, res, next ) {
 
 
 
@@ -39,7 +39,7 @@ userControllers = {
          })
         */
 
-        let errors = (validationResult(req));
+       
         db.users.findOne({
                 where: {
                     email: req.body.email,
@@ -67,7 +67,7 @@ userControllers = {
                     res.redirect("/")
                 
             } 
-                    else {
+            else {
                         res.render('users/login', {
                         errors: [{
                             msg: 'invalid credentials'
@@ -106,7 +106,7 @@ userControllers = {
 
 
 
-    register: function (req, res) {
+    register: function (req, res, next) {
 
 
         res.render('users/register', {
@@ -115,7 +115,7 @@ userControllers = {
         })
     },
 
-    create: function (req, res) {
+    create: function (req, res, next) {
         let password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
         let errors = (validationResult(req));
         
@@ -177,6 +177,12 @@ userControllers = {
         res.clearCookie("recordame")
 
         res.redirect("/")
+    },
+    api : function(req, res){
+        db.users.findAll()
+        .then(function(allUsers){
+            res.json(allUsers)
+        })
     }
 
 
@@ -188,3 +194,10 @@ userControllers = {
 
 
 module.exports = userControllers;
+
+
+
+
+
+
+
