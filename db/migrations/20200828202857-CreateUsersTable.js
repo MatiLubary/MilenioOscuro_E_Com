@@ -18,7 +18,7 @@ module.exports = {
         autoIncrement: true,
 
         primaryKey : true
-      },
+      }, 
 
       email : {
         type : Sequelize.STRING,

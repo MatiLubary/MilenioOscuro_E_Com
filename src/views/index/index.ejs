@@ -124,11 +124,19 @@
 
             <ul class="pagination">
                <li class="page-item page-link"><a href="<%= pagination.firstUrl %>">Primera Pagina</a></li>
-              <li class="page-item page-link"><a href="<%= pagination.prevUrl %>"> < Atras</li>
+              <li class="page-item page-link">
+                <% if (page != "0" && (page)) { %>
+                <a href="<%= pagination.prevUrl %>">
+                  <% }%>
+                   < Atras</li></a>
             </ul>
 
             <ul class="pagination">
-              <li class="page-item page-link"><a href="<%= pagination.nextUrl %>">Adelante ></a></li>
+              <li class="page-item page-link">
+                <% if (page != lastPage) { %>
+                <a href="<%= pagination.nextUrl %>">
+                  <% }%>
+                Adelante ></li></a>
               <li class="page-item page-link"><a href="<%= pagination.lastUrl %>">Ultima Pagina</a></li>
             </ul>
 

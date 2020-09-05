@@ -25,13 +25,11 @@
 
   <!-- Page Content -->
 
+<%- include('../partials/bannersCarousel') %> 
 
   <section class="text-center marg-top2">
     <div class="container">
-        <h1 class="jumbotron-heading">  
-          <%= cat %>
-          </h1>
-        <p class="lead text-muted mb-0">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte...</p>
+
     </div>
 </section>
   
@@ -67,6 +65,29 @@
 
         </div>
         <!-- /.row -->
+
+        <div class="d-flex justify-content-between marg-top_2 small_txt smaller_txt smallest_txt">
+
+          <ul class="pagination">
+             <li class="page-item page-link"><a href="<%= pagination.firstUrl %>">Primera Pagina</a></li>
+            <li class="page-item page-link">
+              <% if (page != "0") { %>
+              <a href="<%= pagination.prevUrl %>">
+                <% }%>
+                 < Atras</li>
+          </ul>
+
+          <ul class="pagination">
+            <li class="page-item page-link"><a href="<%= pagination.nextUrl %>">Adelante ></a></li>
+            <li class="page-item page-link">
+
+              <a href="<%= pagination.lastUrl %>">
+
+                Ultima Pagina</a></li>
+          </ul>
+
+      </div>
+
 
   </div>
   <!-- /.container -->
