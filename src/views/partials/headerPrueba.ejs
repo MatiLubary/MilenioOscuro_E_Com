@@ -70,15 +70,20 @@
                       
                         
                         <% if ( usuario == undefined){ %>
-                            <i class="fas fa-user d-flex justify-content-center align-items-center ml-5 ">
-                         <span id="miCuenta"> Mi cuenta
-                        </span></i>
+                            <a href="/users/login">
+                              <i class="fas fa-user d-flex justify-content-center align-items-center ml-5 ">
+                            <span id="miCuenta"> Mi cuenta
+                              </span></i>
+                            </a>
                    <% } else { %>
-                    <img id="iconoAvatar" class=" ml-5 "  src="/images/avatars/<%= usuario.avatar %> " alt="">
-                        <span> <%= usuario.username %> 
-                        </span><!-- </i> -->
-                        <% } %>
-
+                        
+                          <img id="iconoAvatar" class="ml-5" src="/images/avatars/<%= usuario.avatar %> " alt="">
+                          <a class="navek loslinks" href="/users/profile" >
+                          <span> <%= usuario.username %> 
+                          </span><!-- </i> -->
+                          </a>
+                          <% } %> 
+                                    
                         <% if ( prodEnCarrito > 0){ %>
 
                     <a class="navek loslinks" href="/cart"><i class="fas fa-shopping-cart d-flex justify-content-center align-items-center "> <span> Carrito

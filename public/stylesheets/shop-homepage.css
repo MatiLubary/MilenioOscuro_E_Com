@@ -10,7 +10,16 @@ body {
 .box {
   border: solid;
 }
-
+#bienvenida {
+  font-family: 'Courier Prime', monospace;
+  font-family: 'Lilita One', cursive;
+  font-size: 70px;
+  color: red;
+  /* background-color: black; */
+  text-align: center;
+  font-style: italic;
+  
+}
 
 @media (max-width: 426px) {
   .onlyMobilePadT{
@@ -258,4 +267,5 @@ margin-left: 12px
       }
       }
 
+    
     

@@ -39,7 +39,8 @@ userControllers = {
          })
         */
 
-       
+        let errors = (validationResult(req));
+
         db.users.findOne({
                 where: {
                     email: req.body.email,
@@ -70,12 +71,21 @@ userControllers = {
             else {
                         res.render('users/login', {
                         errors: [{
-                            msg: 'invalid credentials'
+                            msg: 'El correo o contraseña es invalido'
                         }],
                         usuario: req.session.usuario,
                         prodEnCarrito : req.session.cantProdCarro
                     });
                 }
+            }
+            else {
+                res.render('users/login', {
+                    errors: [{
+                        msg: 'El correo o contraseña es invalido'
+                    }],
+                    usuario: req.session.usuario,
+                    prodEnCarrito : req.session.cantProdCarro
+                });
             }
 
                /*  db.carts.findOne({
