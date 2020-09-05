@@ -140,7 +140,11 @@ userControllers = {
 
 
                 if (estaRegistrado) {
-                    res.redirect("/users/register")
+                    
+                    res.render("users/register" , {registrado : estaRegistrado,
+                        usuario: req.session.usuario,
+                        prodEnCarrito : req.session.cantProdCarro
+                    })
                
                 } else {
 

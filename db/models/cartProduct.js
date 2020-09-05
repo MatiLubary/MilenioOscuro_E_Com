@@ -18,6 +18,9 @@ module.exports = function(sequelize , dataTypes){
 
         price : {
             type : dataTypes.INTEGER
+        } ,
+        offer : {
+            type : dataTypes.STRING
         }
     }
 

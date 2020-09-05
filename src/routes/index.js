@@ -25,7 +25,7 @@ fs.writeFileSync( emailsFilePath , JSON.stringify(archivoEmail , null, 4))
 
 router.get('/search', controllerIdex.search)
 
-
+router.get('/oferta', controllerIdex.offer)
 //Rutas de Footer
 router.post('/emails', controllerIdex.emailOfert)
 router.get('/contact', controllerIndex.contact)

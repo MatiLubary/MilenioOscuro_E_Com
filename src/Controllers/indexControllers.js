@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const productsFilePath = path.join(__dirname, '../data/productos.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+/* const productsFilePath = path.join(__dirname, '../data/productos.json');
+const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')); */
 const db = require('../../db/models');
 const { sequelize } = require('../../db/models');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -13,7 +13,7 @@ controllerIndex = {
 
     console.log(req.session.cantProdCarro)
 
-    let prodsCategoriaX = products.filter(product => product.category == req.query.categoria)
+    /* let prodsCategoriaX = products.filter(product => product.category == req.query.categoria) */
 
     let cat = req.query.categoria
 
@@ -70,6 +70,24 @@ controllerIndex = {
 
   },
 
+  offer : function(req, res){
+    
+    db.products.findAll({
+      where : {
+        offer : "on"
+      }
+    })
+    .then(function(resultado){
+      res.render('index/ofertas' , {
+        products : resultado,
+        usuario: req.session.usuario,
+        prodEnCarrito : req.session.cantProdCarro,
+        toThousand
+      })
+    })
+
+  },
+
 
  search : function(req, res){
    db.products.findAll({
@@ -78,7 +96,12 @@ controllerIndex = {
      }
    })
    .then(function(resultado){
-     res.send(resultado)
+     console.log(resultado)
+    res.render('index/productosBuscados' , {products : resultado,
+      usuario: req.session.usuario,
+      prodEnCarrito : req.session.cantProdCarro,
+      palabraBuscada : req.query.search,
+      toThousand})
    })
  },
 
