@@ -211,9 +211,26 @@
   integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
   crossorigin="anonymous" />
 <script>
+
+  var tamanioVentana = 4
+
+ 
+
+if(window.innerWidth < 550){
+
+ tamanioVentana = 1.7
+
+}
+
+if(window.innerWidth < 1024 &&  window.innerWidth > 551 ){
+  tamanioVentana = 2
+}
+console.log(tamanioVentana)
+
+
   $(document).ready(function () {
     $('.your-class').slick({
-      slidesToShow: 4,
+      slidesToShow: tamanioVentana,
       slidesToScroll: 1,
       autoplay: false,
       /*  autoplaySpeed: 2000, */

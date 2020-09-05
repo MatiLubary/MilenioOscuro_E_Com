@@ -41,6 +41,10 @@ router.post('/alta',[upload.any(), check("name").isLength({min : 5}).withMessage
 
 //-------------------------------ELIMINAR PRODUCTO---------------------------------------//
 
+router.post('/historial' ,  adminControllers.historial)
+
+router.get('/historial' , adminControllers.api)
+
 router.delete('/delete/:id', adminControllers.delete)
 
 

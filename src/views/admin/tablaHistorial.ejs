@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="d-flex justify-content-between m-4">
+        <h2>Compras del usuario</h2> 
+        <a href="http://localhost:3000/admin"><button type="menu" class="btn btn-info">Menu Admin</button></a>
+    </div>
+
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Email</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Oferta</th>
+            <th scope="col">Precio producto</th>
+            <th scope="col">Total Carro</th>
+            <form action="/admin/historial" >
+            <th scope="col">Fecha  <div  class="input-group " style="width: 211px;display: inline-flex;margin-left:98px; ">
+        
+              <input type="date" class="form-control " placeholder="Filtrar por fecha" style="height: 28px;"  name="fecha" id="">
+  
+              <div class="input-group-append">
+                   <span id="anchoSearch"
+                      class="input-group-text d-flex justify-content-center align-items-center">
+                      <button type="submit" style="all: unset; cursor: pointer;"> <i style="font-size: 14px;" class="fas fa-search d-flex justify-content-center align-items-center"></i></button>
+                  </span>
+              </div>
+  
+          
+          </div> 
+              </th>
+            
+          </form>
+          
+          </tr>
+        </thead>
+        <tbody>
+
+            <% for (let prod of compras) { %>
+
+               
+
+          <tr >
+            <th scope="row"><%= prod.carts.id %></th>
+            <td><%= nombreUsuario %> </td>
+            <td><%= prod.products.name %> </td>
+            <td><%= prod.qty %></td>
+            <td><%= prod.offer %></td>
+            <td>$<%= toThousand(prod.products.price) %></td>
+            <td>$<%= toThousand(prod.carts.total) %></td>
+            <td><%= prod.carts.created_at %></td>
+          </tr>
+          
+          
+          <% } %> 
+
+
+        </tbody>
+      </table>
+      
+     
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

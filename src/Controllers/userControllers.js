@@ -13,7 +13,7 @@ const bcrypt = require('bcrypt');
 
 userControllers = {
 
-    login: function (req, res, next) {
+    login: function (req, res) {
 
 
 
@@ -29,7 +29,7 @@ userControllers = {
 
     },
 
-    processLogin: function (req, res, next) {
+    processLogin: function (req, res ) {
 
 
         /* let usuarioEncontrado =  archivoUsuario.find(function(usuario){
@@ -39,6 +39,7 @@ userControllers = {
          })
         */
 
+        let errors = (validationResult(req));
 
         db.users.findOne({
                 where: {
@@ -48,8 +49,7 @@ userControllers = {
             })
             .then(function (usuario) {
         
-
-           
+        
                 if (usuario) {
                     let contrasenia =    bcrypt.compareSync( req.body.password , usuario.password )
                     if(contrasenia){
@@ -68,10 +68,10 @@ userControllers = {
                     res.redirect("/")
                 
             } 
-            else {
-                    res.render('users/login', {
+                    else {
+                        res.render('users/login', {
                         errors: [{
-                            msg: 'invalid credentials'
+                            msg: 'El correo o contraseña es invalido'
                         }],
                         usuario: req.session.usuario,
                         prodEnCarrito : req.session.cantProdCarro
@@ -81,7 +81,7 @@ userControllers = {
             else {
                 res.render('users/login', {
                     errors: [{
-                        msg: 'invalid credentials'
+                        msg: 'El correo o contraseña es invalido'
                     }],
                     usuario: req.session.usuario,
                     prodEnCarrito : req.session.cantProdCarro
@@ -116,7 +116,7 @@ userControllers = {
 
 
 
-    register: function (req, res, next) {
+    register: function (req, res) {
 
 
         res.render('users/register', {
@@ -125,7 +125,7 @@ userControllers = {
         })
     },
 
-    create: function (req, res, next) {
+    create: function (req, res) {
         let password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
         let errors = (validationResult(req));
         
@@ -140,7 +140,11 @@ userControllers = {
 
 
                 if (estaRegistrado) {
-                    res.redirect("/users/register")
+                    
+                    res.render("users/register" , {registrado : estaRegistrado,
+                        usuario: req.session.usuario,
+                        prodEnCarrito : req.session.cantProdCarro
+                    })
                
                 } else {
 

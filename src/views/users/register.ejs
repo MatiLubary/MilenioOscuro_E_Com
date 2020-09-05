@@ -55,7 +55,7 @@
 
 
           <button type="submit">Registrarse</button>
-          <p class="message">Ya registrado? <a href="login">Log in</a></p>
+          <p class="message">Ya registrado? <a href="login">Inicia session</a></p>
         </form>
         <br>
         <% if (typeof errors != 'undefined') { %>
@@ -65,6 +65,15 @@
                     <%=errors[i].msg%>
                   </li>
             <% } %>
+          </ul>
+        <% } %>
+        <% if (typeof registrado != "undefined") { %>
+          <ul>
+            
+                  <li> 
+                   El email ya se encuentra registrado
+                  </li>
+            
           </ul>
         <% } %>
       </div>

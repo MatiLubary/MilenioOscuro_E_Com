@@ -21,7 +21,9 @@ var upload = multer({ storage: storage })
 
 router.get('/detail/:id' , controllersProducts.detail)
 
- router.post('/alta' ,  controllersProducts.alta)
+router.post('/alta' ,  controllersProducts.alta)
+
+
 
 router.get('/developers' , controllersProducts.api)
 

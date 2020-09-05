@@ -100,6 +100,8 @@ console.log(duplicados)
     } else {
 
  let duplicados = noEliminados.findIndex(item => item.id == req.body.idProducto)
+
+ 
  
  noEliminados[duplicados].cantidad = Number(noEliminados[duplicados].cantidad) + (Number(req.body.qty))
 
@@ -174,9 +176,17 @@ console.log(duplicados)
                         .then(function(product){
                             if(product.id == num.id){
                                 var laCantidad = num.cantidad
+                                var oferta = num.offer
                             }
+                            if(product.offer == "on"){
+                                precioParadb = product.newprice
+                            }else {
+                                precioParadb = product.price
+                            }
+                        
                         carro.addProducts(product, {through : {
-                                price: product.price,
+                                 offer : oferta,
+                                price: precioParadb,
                                 qty : laCantidad
                             }})
                         })
@@ -259,6 +269,8 @@ console.log(duplicados)
         })
 
         noEliminados = []
+        req.session.cantProdCarro =  ""
+        
 
         res.redirect('/')
     })
