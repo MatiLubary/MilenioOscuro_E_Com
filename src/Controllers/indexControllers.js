@@ -17,13 +17,17 @@ controllerIndex = {
 
     let cat = req.query.categoria
 
+    let page = req.query.page
+
+    
+
     
 
     if (req.query.categoria) {
 
       db.products.findAndCountAll({
-        offset: Number(req.query.page)*8 || 0,
-        limit: 8, 
+        offset: Number(req.query.page)*12 || 0,
+        limit: 12, 
         where: {
           category : req.query.categoria
         }
@@ -32,11 +36,11 @@ controllerIndex = {
           products: products.rows,
           pagination: {
             firstUrl: '/',
-            nextUrl : '/?page=' + (req.query.page ? Number(req.query.page)+ 1 : 1),
-            prevUrl :  '?page=' + (req.query.page ? Number(req.query.page) - 1 : 0),
-            lastUrl : '?page=' + (parseInt(products.count / 8) - 1)
-            
+            nextUrl : '/?page=' + (page ? Number(page)+ 1 : 1),
+            prevUrl :  '/?page=' + (page ? Number(page) - 1 : 0),
+            lastUrl : '/?page=' + (parseInt(products.count / 12) - 1)
             },
+          page,
           cat,
           usuario: req.session.usuario,
           prodEnCarrito : req.session.cantProdCarro,
@@ -48,21 +52,25 @@ controllerIndex = {
 
 
     db.products.findAndCountAll({
-      offset: Number(req.query.page)*8 || 0,
-      limit: 8, })
+      offset: Number(req.query.page)*12 || 0,
+      limit: 12, })
       .then(function (products) {
+
+        let lastPage = Math.ceil(products.count / 12 -1)
             res.render('index', {
           products: products.rows,
           pagination: {
             firstUrl: '/',
-            nextUrl : '/?page=' + (req.query.page ? Number(req.query.page)+ 1 : 1),
-            prevUrl :  '?page=' + (req.query.page ? Number(req.query.page) - 1 : 0),
-            lastUrl : '?page=' + (parseInt(products.count / 8) - 1)
+            nextUrl : '/?page=' + (page ? Number(page) + 1 : 1),
+            prevUrl :  '?page=' + (page ? Number(page) - 1 : 0),
+            /* lastUrl : '?page=' + (parseInt(products.count / 12 - 1)) */
+            lastUrl : '?page=' + Math.ceil(products.count / 12 - 1)
             },
+            page,
+            lastPage,
           usuario: req.session.usuario,
           prodEnCarrito : req.session.cantProdCarro,
           toThousand
-
         })
 
       })
