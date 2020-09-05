@@ -59,44 +59,15 @@ constrollersProducts = {
                         
                         res.json(result.rows)
                 })
-          }
-
-/* 
-                res.render('products/productsAlta' , {usuario : req.session.usuario}) */
-       /*  }, */
-
-
-
-
-
-
-        /* dadoDeAlta: function (req, res, next) {
-
-                let nuevoProducto = req.body
-
-                nuevoProducto.id = archivo.length + 1
-
-                let nuevo = archivo.length + 1
-
-                    console.log(req.files)
-
-                    nuevoProducto.image = "/" + req.body.category + "/" + req.files[0].filename 
-
-
-                archivo.push(nuevoProducto)
-
-                fs.writeFileSync(productsFilePath, JSON.stringify(archivo, null, 4))
-
+          },
+ 
 
                 
 
 
 
+          
 
-
-                res.redirect("/")
-        }
- */
 
 
      

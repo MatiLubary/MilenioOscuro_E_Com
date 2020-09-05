@@ -10,11 +10,14 @@ let {
     body
 } = require('express-validator')
 
+ var usuarioPedido 
 
 adminControllers = {
 
 
     products: function (req, res) {
+
+        usuarioPedido = ""
 
         /*  res.render('admin/adminProducts', {
              productos: archivo
@@ -50,7 +53,7 @@ adminControllers = {
                 res.render('admin/editProduct', {
                     usuario: req.session.usuario,
                     producto: producto,
-                    prodEnCarrito : req.session.cantProdCarro
+                    prodEnCarrito: req.session.cantProdCarro
 
                 })
             })
@@ -68,14 +71,14 @@ adminControllers = {
 
     update: function (req, res, next) {
 
-        
 
-          if(req.body.offer != undefined){
+
+        if (req.body.offer != undefined) {
             var oferta = "on"
-          }else {
-              var oferta = "off"
-          }
-    
+        } else {
+            var oferta = "off"
+        }
+
 
         var errors = (validationResult(req))
 
@@ -97,7 +100,7 @@ adminControllers = {
             }
             if (req.files[1] != undefined) {
                 product.imagetwo = req.files[1].filename
-                
+
             }
             db.products.update(
                 product, {
@@ -116,7 +119,7 @@ adminControllers = {
                         usuario: req.session.usuario,
                         producto: producto,
                         errores: errors.errors,
-                        prodEnCarrito : req.session.cantProdCarro
+                        prodEnCarrito: req.session.cantProdCarro
 
                     })
                 })
@@ -136,7 +139,7 @@ adminControllers = {
 
         res.render('admin/productsAlta', {
             usuario: req.session.usuario,
-            prodEnCarrito : req.session.cantProdCarro
+            prodEnCarrito: req.session.cantProdCarro
         })
 
 
@@ -184,7 +187,7 @@ console.log(req.files)
             res.render('admin/productsAlta', {
                 usuario: req.session.usuario,
                 errores: errors.errors,
-                prodEnCarrito : req.session.cantProdCarro
+                prodEnCarrito: req.session.cantProdCarro
 
             })
 
@@ -211,7 +214,130 @@ console.log(req.files)
         })
 
         res.redirect("/admin")
+    },
+
+    historial: function (req, res) {
+
+      usuarioPedido = req.body.usuarioBuscado
+
+
+
+        db.users.findAll({
+               include: [{
+                    association: "carts",
+                    paranoid: false
+                }],
+                where: {
+                    email: req.body.usuarioBuscado
+                }
+            })
+            .then(function (usuarios) {
+
+                var idDeLosCarritos = []
+
+                for (let user of usuarios) {
+                    for (let carro of user.carts) {
+                        idDeLosCarritos.push(carro.id)
+                    }
+                }
+
+                db.cartsProducts.findAll({
+                        include: [{
+                            association: "carts",
+                            paranoid: false
+                        }, {
+                            association: "products"
+                        }, ],
+                        where: {
+                            cart_id: idDeLosCarritos,
+
+                        }
+                    })
+                    .then(function (result) {
+
+                        
+
+                        res.render('admin/tablaHistorial', {
+                            compras: result,
+                            nombreUsuario: req.body.usuarioBuscado,
+                            toThousand
+                        })
+
+
+                    })
+
+            })
+
+    },
+
+    api : function(req, res){
+
+        db.users.findAll({
+            include: [{
+                 association: "carts",
+                 paranoid: false
+             }],
+             where: {
+                 email: usuarioPedido
+             }
+         })
+         .then(function (usuarios) {
+
+             var idDeLosCarritos = []
+
+             for (let user of usuarios) {
+                 for (let carro of user.carts) {
+                     idDeLosCarritos.push(carro.id)
+                 }
+             }
+
+             db.cartsProducts.findAll({
+                     include: [{
+                         association: "carts",
+                         paranoid: false
+                     }, {
+                         association: "products"
+                     }, ],
+                     where: {
+                         cart_id: idDeLosCarritos,
+                         created_at : {[db.Sequelize.Op.substring] : req.query.fecha}
+
+                     }
+                 })
+                 .then(function (result) {
+
+                     
+
+                    res.render('admin/tablaHistorial', {
+                        compras: result,
+                        nombreUsuario: usuarioPedido,
+                        toThousand
+                    })
+
+
+                 })
+
+         })
+
+
+
+
+
+
+        
     }
+
+
+
+
+
+
+
+  
+
+
+
+
 
 
 
