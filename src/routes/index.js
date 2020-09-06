@@ -28,10 +28,10 @@ router.get('/search', controllerIdex.search)
 router.get('/oferta', controllerIdex.offer)
 //Rutas de Footer
 router.post('/emails', controllerIdex.emailOfert)
-router.get('/contact', controllerIndex.contact)
-router.get('/envios', controllerIndex.envios)
+router.get('/contact', controllerIndex.quienes)
+router.get('/envios', controllerIndex.quienes)
 router.get('/quienes', controllerIndex.quienes)
-router.get('/metodopago', controllerIndex.metodopago)
+router.get('/metodopago', controllerIndex.quienes)
 
 
 

@@ -132,30 +132,30 @@ controllerIndex = {
 
 
 
-  contact: function (req, res, next) {
-    res.render('index/contact', {
-      usuario: req.session.usuario,
-      prodEnCarrito : req.session.cantProdCarro
-    })
-  },
-  envios: function (req, res, next) {
-    res.render('index/envios', {
-      usuario: req.session.usuario,
-      prodEnCarrito : req.session.cantProdCarro
-    })
-  },
+  // contact: function (req, res, next) {
+  //   res.render('index/contact', {
+  //     usuario: req.session.usuario,
+  //     prodEnCarrito : req.session.cantProdCarro
+  //   })
+  // },
+  // envios: function (req, res, next) {
+  //   res.render('index/envios', {
+  //     usuario: req.session.usuario,
+  //     prodEnCarrito : req.session.cantProdCarro
+  //   })
+  // },
   quienes: function (req, res, next) {
     res.render('index/quienes', {
       usuario: req.session.usuario,
       prodEnCarrito : req.session.cantProdCarro
     })
   },
-  metodopago: function (req, res, next) {
-    res.render('index/metodopago', {
-      usuario: req.session.usuario,
-      prodEnCarrito : req.session.cantProdCarro
-    })
-  }
+  // metodopago: function (req, res, next) {
+  //   res.render('index/metodopago', {
+  //     usuario: req.session.usuario,
+  //     prodEnCarrito : req.session.cantProdCarro
+    // })
+  // }
 
 }
 
