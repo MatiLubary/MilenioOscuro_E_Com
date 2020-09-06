@@ -343,3 +343,7 @@ span {
 .slick-next:before {
     filter: invert();
 }
+
+.mb_12 {
+    margin-bottom: 12rem;
+}

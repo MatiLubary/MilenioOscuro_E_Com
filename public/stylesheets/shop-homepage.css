@@ -11,13 +11,10 @@ body {
   border: solid;
 }
 #bienvenida {
-  font-family: 'Courier Prime', monospace;
-  font-family: 'Lilita One', cursive;
-  font-size: 70px;
-  color: red;
+  font-family: 'Bangers', cursive;
+  font-size: 64px;  
   /* background-color: black; */
   text-align: center;
-  font-style: italic;
   
 }
 
@@ -267,5 +264,19 @@ margin-left: 12px
       }
       }
 
+    .hr.rounded {
+      border-top: 8px solid #bbb;
+      border-radius: 5px;
+    }
     
-    
+    .wid_70 {
+      width: 70%;
+    }
+
+/*     h1 {
+      text-shadow: 0 0 3px #FF0000, 0 0 5px #ff0015;
+    }
+ */
+    .marg_bot_10{
+      margin-bottom: 10rem;
+    }
