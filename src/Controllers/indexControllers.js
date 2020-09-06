@@ -32,6 +32,7 @@ controllerIndex = {
           category : req.query.categoria
         }
       }).then(function (products) {
+        
         res.render('index/indexFiltrados', {
           products: products.rows,
           pagination: {
@@ -57,21 +58,22 @@ controllerIndex = {
       .then(function (products) {
 
         let lastPage = Math.ceil(products.count / 12 -1)
+       
             res.render('index', {
           products: products.rows,
           pagination: {
             firstUrl: '/',
             nextUrl : '/?page=' + (page ? Number(page) + 1 : 1),
             prevUrl :  '?page=' + (page ? Number(page) - 1 : 0),
-            /* lastUrl : '?page=' + (parseInt(products.count / 12 - 1)) */
-            lastUrl : '?page=' + Math.ceil(products.count / 12 - 1)
+            /* lastUrl : '?page=' + (parseInt(products.count / 12 - 1)) , */
+             lastUrl : '?page=' + Math.ceil(products.count / 12 - 1)
             },
             page,
             lastPage,
           usuario: req.session.usuario,
           prodEnCarrito : req.session.cantProdCarro,
-          toThousand
-        })
+          toThousand 
+         }) 
 
       })
 

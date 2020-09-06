@@ -69,7 +69,7 @@
         <div class="d-flex justify-content-between marg-top_2 small_txt smaller_txt smallest_txt">
 
           <ul class="pagination">
-             <li class="page-item page-link"><a href="<%= pagination.firstUrl %>">Primera Pagina</a></li>
+             <li class="page-item page-link"><a href="<%= pagination.firstUrl %>"> << </a></li>
             <li class="page-item page-link">
               <% if (page != "0") { %>
               <a href="<%= pagination.prevUrl %>">
@@ -78,12 +78,12 @@
           </ul>
 
           <ul class="pagination">
-            <li class="page-item page-link"><a href="<%= pagination.nextUrl %>">Adelante ></a></li>
+            <li class="page-item page-link"><a href="<%= pagination.nextUrl %>">Siguiente ></a></li>
             <li class="page-item page-link">
 
               <a href="<%= pagination.lastUrl %>">
 
-                Ultima Pagina</a></li>
+                >></a></li>
           </ul>
 
       </div>

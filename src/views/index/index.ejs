@@ -17,7 +17,7 @@
   <!-- Custom styles for this template -->
   <link href="/stylesheets/shop-homepage.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Lilita+One&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -66,7 +66,7 @@
         <img class= "onlyMobile" src="https://i.pinimg.com/originals/e9/9f/3a/e99f3a82d2370506419d45061350132d.jpg" style="width:100%">
 <!-- titulo -->
         <div>
-          <h1 id="bienvenida">MILENIO OSCURO COMICS & GAMES
+          <h1 style="font-family: 'Anton', sans-serif;" id="bienvenida">MILENIO OSCURO COMICS & GAMES
           </h1>
         </div>
  <!-- termina titulo -->
@@ -123,13 +123,13 @@
     
    
       
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center small_txt smaller_txt smallest_txt">
 
 
 
         <nav aria-label="Page navigation example">
           <ul class="pagination">
-            <li class="page-item page-link"><a href="<%= pagination.firstUrl %>">Primera Pagina</a></li>
+            <li class="page-item page-link"><a href="<%= pagination.firstUrl %>"><<</a></li>
             <li class="page-item page-link">
               <% if (page != "0" && (page)) { %>
               <a href="<%= pagination.prevUrl %>">
@@ -152,8 +152,8 @@
               <% if (page != lastPage) { %>
               <a href="<%= pagination.nextUrl %>">
                 <% }%>
-              Adelante ></li></a>
-            <li class="page-item page-link"><a href="<%= pagination.lastUrl %>">Ultima Pagina</a></li>
+              Siguiente ></li></a>
+            <li class="page-item page-link"><a href="<%= pagination.lastUrl %>">>></a></li>
           </ul>
         </nav>
       </div>

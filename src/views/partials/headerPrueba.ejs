@@ -78,10 +78,19 @@
                    <% } else { %>
                         
                           <img id="iconoAvatar" class="ml-5" src="/images/avatars/<%= usuario.avatar %> " alt="">
-                          <a class="navek loslinks" href="/users/profile" >
+                          <%if(usuario.email == "administrador@hotmail.com"){ %>
+                              <a class="navek loslinks" href="/admin" >
+                                <span> <%= usuario.username %> 
+                                </span><!-- </i> -->
+                                </a>
+                           <% } else { %>
+                               <a class="navek loslinks" href="/users/profile" >
                           <span> <%= usuario.username %> 
-                          </span><!-- </i> -->
+                          </span>
                           </a>
+                               
+                          <% } %>
+                          
                           <% } %> 
                                     
                         <% if ( prodEnCarrito > 0){ %>
