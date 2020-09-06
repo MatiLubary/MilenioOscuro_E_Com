@@ -19,6 +19,37 @@ controllerIndex = {
 
     let page = req.query.page
 
+    let oferta = req.query.oferta
+
+
+
+    if (req.query.oferta) {
+
+      db.products.findAndCountAll({
+        offset: Number(req.query.page)*12 || 0,
+        limit: 12, 
+        where: {
+          offer : req.query.oferta
+        }
+      }).then(function (products) {
+        res.render('index/indexFiltrados', {
+          products: products.rows,
+          pagination: {
+            firstUrl: '/',
+            nextUrl : '/?page=' + (page ? Number(page)+ 1 : 1),
+            prevUrl :  '/?page=' + (page ? Number(page) - 1 : 0),
+            lastUrl : '/?page=' + (parseInt(products.count / 12) - 1)
+            },
+          oferta,
+          page,
+          cat,
+          usuario: req.session.usuario,
+          prodEnCarrito : req.session.cantProdCarro,
+          toThousand
+        })
+      })
+
+    }
     
 
     
@@ -40,6 +71,7 @@ controllerIndex = {
             prevUrl :  '/?page=' + (page ? Number(page) - 1 : 0),
             lastUrl : '/?page=' + (parseInt(products.count / 12) - 1)
             },
+          oferta,  
           page,
           cat,
           usuario: req.session.usuario,

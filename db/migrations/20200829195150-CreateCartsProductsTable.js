@@ -25,7 +25,9 @@ module.exports = {
         type: Sequelize.INTEGER(10).UNSIGNED,
         allowNull: false
       },
-
+      offer: {
+        type: Sequelize.STRING(45)
+      },
       cart_id: {
         type: Sequelize.DataTypes.BIGINT.UNSIGNED,
         references: {
