@@ -36,17 +36,6 @@ adminControllers = {
 
     edit: function (req, res) {
 
-        /* let producto = archivo.find(function (producto) {
-            return producto.id == req.params.id
-        })
-
-        res.render('admin/editProduct', {
-            usuario: req.session.usuario,
-            producto: producto
-        }) */
-
-
-
         db.products.findByPk(req.params.id)
             .then(function (producto) {
 
@@ -57,15 +46,6 @@ adminControllers = {
 
                 })
             })
-
-
-
-
-
-
-
-
-
 
     },
 
@@ -171,8 +151,7 @@ console.log(req.files)
 
         if (errors.isEmpty()) {
 
-            console.log(req.files)
-
+            
             db.products.create({
                 name: req.body.name,
                 price: req.body.price,
