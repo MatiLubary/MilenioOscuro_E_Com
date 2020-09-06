@@ -1,0 +1,155 @@
+<% if (oferta == "on")  { %> 
+
+<div class="d-flex justify-content-center">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item page-link"><a href="<%= pagination.firstUrl %>">Primera Pagina</a></li>
+        <li class="page-item page-link">
+          <% if (page != "0" && (page)) { %>
+          <a href="<%= pagination.prevUrl %>">
+            <% }%>
+             < Atras</li></a>
+
+             
+
+             <% for (let i = 0 ; i <= lastPage ; ++i) { %>
+              <% if( page == i){ %>
+
+                <li class="page-item active"><a class="page-link" href="?oferta=on&page=<%= i %>" > <%= i + 1  %></a></li>
+              <% } else { %>
+                <li class="page-item"><a class="page-link" href="?oferta=on&page=<%= i %>" > <%= i +1  %></a></li>
+                <% } %> 
+              
+              <%  } %>
+
+        <li class="page-item page-link">
+          <% if (page != lastPage) { %>
+          <a href="<%= pagination.nextUrl %>">
+            <% }%>
+          Adelante ></li></a>
+        <li class="page-item page-link"><a href="<%= pagination.lastUrl %>">Ultima Pagina</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <% }%>
+
+
+
+
+
+  <% if (cat == "videoJuegos")  { %> 
+
+    <div class="d-flex justify-content-center">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item page-link"><a href="<%= pagination.firstUrl %>">Primera Pagina</a></li>
+            <li class="page-item page-link">
+              <% if (page != "0" && (page)) { %>
+              <a href="<%= pagination.prevUrl %>">
+                <% }%>
+                 < Atras</li></a>
+    
+                 
+    
+                 <% for (let i = 0 ; i <= lastPage ; ++i) { %>
+                  <% if( page == i){ %>
+    
+                    <li class="page-item active"><a class="page-link" href="?categoria=videoJuegos&page=<%= i %>" > <%= i + 1  %></a></li>
+                  <% } else { %>
+                    <li class="page-item"><a class="page-link" href="?categoria=videoJuegos&page=<%= i %>" > <%= i +1  %></a></li>
+                    <% } %> 
+                  
+                  <%  } %>
+    
+            <li class="page-item page-link">
+              <% if (page != lastPage) { %>
+              <a href="<%= pagination.nextUrl %>">
+                <% }%>
+              Adelante ></li></a>
+            <li class="page-item page-link"><a href="<%= pagination.lastUrl %>">Ultima Pagina</a></li>
+          </ul>
+        </nav>
+      </div>
+    
+      <% }%>
+
+
+
+      <% if (cat == "comics")  { %> 
+
+        <div class="d-flex justify-content-center">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item page-link"><a href="<%= pagination.firstUrl %>">Primera Pagina</a></li>
+                <li class="page-item page-link">
+                  <% if (page != "0" && (page)) { %>
+                  <a href="<%= pagination.prevUrl %>">
+                    <% }%>
+                     < Atras</li></a>
+        
+                     
+        
+                     <% for (let i = 0 ; i <= lastPage ; ++i) { %>
+                      <% if( page == i){ %>
+        
+                        <li class="page-item active"><a class="page-link" href="?categoria=comics&page=<%= i %>" > <%= i + 1  %></a></li>
+                      <% } else { %>
+                        <li class="page-item"><a class="page-link" href="?categoria=comics&page=<%= i %>" > <%= i +1  %></a></li>
+                        <% } %> 
+                      
+                      <%  } %>
+        
+                <li class="page-item page-link">
+                  <% if (page != lastPage) { %>
+                  <a href="<%= pagination.nextUrl %>">
+                    <% }%>
+                  Adelante ></li></a>
+                <li class="page-item page-link"><a href="<%= pagination.lastUrl %>">Ultima Pagina</a></li>
+              </ul>
+            </nav>
+          </div>
+        
+          <% }%>
+
+
+          <% if (cat == "juegosDeMesa")  { %> 
+
+            <div class="d-flex justify-content-center">
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination">
+                    <li class="page-item page-link"><a href="<%= pagination.firstUrl %>">Primera Pagina</a></li>
+                    <li class="page-item page-link">
+                      <% if (page != "0" && (page)) { %>
+                      <a href="<%= pagination.prevUrl %>">
+                        <% }%>
+                         < Atras</li></a>
+            
+                         
+            
+                         <% for (let i = 0 ; i <= lastPage ; ++i) { %>
+                          <% if( page == i){ %>
+            
+                            <li class="page-item active"><a class="page-link" href="?categoria=juegosDeMesa&page=<%= i %>" > <%= i + 1  %></a></li>
+                          <% } else { %>
+                            <li class="page-item"><a class="page-link" href="?categoria=juegosDeMesa&page=<%= i %>" > <%= i +1  %></a></li>
+                            <% } %> 
+                          
+                          <%  } %>
+            
+                    <li class="page-item page-link">
+                      <% if (page != lastPage) { %>
+                      <a href="<%= pagination.nextUrl %>">
+                        <% }%>
+                      Adelante ></li></a>
+                    <li class="page-item page-link"><a href="<%= pagination.lastUrl %>">Ultima Pagina</a></li>
+                  </ul>
+                </nav>
+              </div>
+            
+              <% }%>
+    
+
+
+
+

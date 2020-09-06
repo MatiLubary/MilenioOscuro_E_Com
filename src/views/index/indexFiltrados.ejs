@@ -16,6 +16,7 @@
 
   <!-- Custom styles for this template -->
   <link href="/stylesheets/shop-homepage.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 
 </head>
 
@@ -26,7 +27,27 @@
   <!-- Page Content -->
 
 <%- include('../partials/bannersCarousel') %> 
+<div>
+  <h1 id="bienvenida">
+    <% if (cat == "comics")  { %> 
+    COMICS
+    <% }%>
 
+    <% if (cat == "videoJuegos")  { %> 
+      VIDEO JUEGOS
+    <% }%>
+
+    <% if (cat == "juegosDeMesa")  { %> 
+      JUEGOS DE MESA
+    <% }%>
+
+    <% if (oferta == "on")  { %> 
+      OFERTAS
+    <% }%>
+    
+  </h1>
+  <hr class="rounded wid_70">
+</div>
   <section class="text-center marg-top2">
     <div class="container">
 
@@ -66,27 +87,10 @@
         </div>
         <!-- /.row -->
 
-        <div class="d-flex justify-content-between marg-top_2 small_txt smaller_txt smallest_txt">
 
-          <ul class="pagination">
-             <li class="page-item page-link"><a href="<%= pagination.firstUrl %>">Primera Pagina</a></li>
-            <li class="page-item page-link">
-              <% if (page != "0") { %>
-              <a href="<%= pagination.prevUrl %>">
-                <% }%>
-                 < Atras</li>
-          </ul>
-
-          <ul class="pagination">
-            <li class="page-item page-link"><a href="<%= pagination.nextUrl %>">Adelante ></a></li>
-            <li class="page-item page-link">
-
-              <a href="<%= pagination.lastUrl %>">
-
-                Ultima Pagina</a></li>
-          </ul>
-
-      </div>
+        
+          <%- include('../partials/pagination') %>
+      
 
 
   </div>
