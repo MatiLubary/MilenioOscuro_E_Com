@@ -32,15 +32,20 @@ controllerIndex = {
           offer : req.query.oferta
         }
       }).then(function (products) {
+
+        let lastPage = Math.ceil(products.count / 12 -1)
+
         res.render('index/indexFiltrados', {
           products: products.rows,
           pagination: {
-            firstUrl: '/',
-            nextUrl : '/?page=' + (page ? Number(page)+ 1 : 1),
-            prevUrl :  '/?page=' + (page ? Number(page) - 1 : 0),
-            lastUrl : '/?page=' + (parseInt(products.count / 12) - 1)
+            firstUrl: '/?oferta=on',
+            nextUrl : '?oferta=on&?page=' + (page ? Number(page)+ 1 : 1),
+            prevUrl :  '?oferta=on&?page=' + (page ? Number(page) - 1 : 0),
+/*             lastUrl : '/?page=' + (parseInt(products.count / 12) - 1) */
+            lastUrl : '?oferta=on&page=' + Math.ceil(products.count / 12 - 1)
             },
           oferta,
+          lastPage,
           page,
           cat,
           usuario: req.session.usuario,
@@ -63,16 +68,21 @@ controllerIndex = {
           category : req.query.categoria
         }
       }).then(function (products) {
+
+        let lastPage = Math.ceil(products.count / 12 -1)
+
         res.render('index/indexFiltrados', {
           products: products.rows,
           pagination: {
-            firstUrl: '/',
-            nextUrl : '/?page=' + (page ? Number(page)+ 1 : 1),
-            prevUrl :  '/?page=' + (page ? Number(page) - 1 : 0),
-            lastUrl : '/?page=' + (parseInt(products.count / 12) - 1)
+            firstUrl: '/?categoria=' + cat,
+            nextUrl : '/?categoria=' + cat + '&?page=' + (page ? Number(page) + 1 : 1),
+            prevUrl : '/?categoria=' + cat + '&?page=' + (page ? Number(page) - 1 : 0),
+            /* lastUrl : '/?page=' + (parseInt(products.count / 12) - 1) */
+            lastUrl : '/?categoria=' + cat + '&?page=' + Math.ceil(products.count / 12 - 1)
             },
           oferta,  
           page,
+          lastPage,
           cat,
           usuario: req.session.usuario,
           prodEnCarrito : req.session.cantProdCarro,
@@ -110,7 +120,7 @@ controllerIndex = {
 
   },
 
-  offer : function(req, res){
+/*   offer : function(req, res){
     
     db.products.findAll({
       where : {
@@ -127,7 +137,7 @@ controllerIndex = {
     })
 
   },
-
+ */
 
  search : function(req, res){
    db.products.findAll({
