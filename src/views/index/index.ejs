@@ -120,28 +120,46 @@
 
 
     <!-- /.row -->
-      <div class="d-flex justify-content-between marg-top_2 small_txt smaller_txt smallest_txt">
+    
+   
+      
+<div class="d-flex justify-content-center">
 
-            <ul class="pagination">
-               <li class="page-item page-link"><a href="<%= pagination.firstUrl %>">Primera Pagina</a></li>
-              <li class="page-item page-link">
-                <% if (page != "0" && (page)) { %>
-                <a href="<%= pagination.prevUrl %>">
-                  <% }%>
-                   < Atras</li></a>
-            </ul>
 
-            <ul class="pagination">
-              <li class="page-item page-link">
-                <% if (page != lastPage) { %>
-                <a href="<%= pagination.nextUrl %>">
-                  <% }%>
-                Adelante ></li></a>
-              <li class="page-item page-link"><a href="<%= pagination.lastUrl %>">Ultima Pagina</a></li>
-            </ul>
 
-        </div>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item page-link"><a href="<%= pagination.firstUrl %>">Primera Pagina</a></li>
+            <li class="page-item page-link">
+              <% if (page != "0" && (page)) { %>
+              <a href="<%= pagination.prevUrl %>">
+                <% }%>
+                 < Atras</li></a>
 
+                 
+
+                 <% for (let i = 0 ; i <= lastPage ; ++i) { %>
+                  <% if( page == i){ %>
+
+                    <li class="page-item active"><a class="page-link" href="?page=<%= i %>" > <%= i +1  %></a></li>
+                  <% } else { %>
+                    <li class="page-item"><a class="page-link" href="?page=<%= i %>" > <%= i +1  %></a></li>
+                    <% } %> 
+                  
+                  <%  } %>
+
+            <li class="page-item page-link">
+              <% if (page != lastPage) { %>
+              <a href="<%= pagination.nextUrl %>">
+                <% }%>
+              Adelante ></li></a>
+            <li class="page-item page-link"><a href="<%= pagination.lastUrl %>">Ultima Pagina</a></li>
+          </ul>
+        </nav>
+      </div>
+
+     
+      
 
   </div>
   <!-- /.container -->
