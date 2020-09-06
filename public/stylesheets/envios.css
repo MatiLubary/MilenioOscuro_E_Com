@@ -10,3 +10,8 @@
     padding-left: 15px;
 
 }
+#fondo {
+    background-image: url("../images/logoEditadotransp.png");
+    background-size: 80px 35px;
+  
+}

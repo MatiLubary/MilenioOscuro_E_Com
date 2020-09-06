@@ -16,7 +16,8 @@
 
   <!-- Custom styles for this template -->
   <link href="/stylesheets/shop-homepage.css" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Lilita+One&display=swap" rel="stylesheet">
+  
 </head>
 
 <body>
@@ -63,7 +64,12 @@
         </div>
 
         <img class= "onlyMobile" src="https://i.pinimg.com/originals/e9/9f/3a/e99f3a82d2370506419d45061350132d.jpg" style="width:100%">
-
+<!-- titulo -->
+        <div>
+          <h1 id="bienvenida">MILENIO OSCURO COMICS & GAMES
+          </h1>
+        </div>
+ <!-- termina titulo -->
         <div class="container">
 
           <div class="row">
@@ -114,28 +120,46 @@
 
 
     <!-- /.row -->
-      <div class="d-flex justify-content-between marg-top_2 small_txt smaller_txt smallest_txt">
+    
+   
+      
+<div class="d-flex justify-content-center">
 
-            <ul class="pagination">
-               <li class="page-item page-link"><a href="<%= pagination.firstUrl %>">Primera Pagina</a></li>
-              <li class="page-item page-link">
-                <% if (page != "0" && (page)) { %>
-                <a href="<%= pagination.prevUrl %>">
-                  <% }%>
-                   < Atras</li></a>
-            </ul>
 
-            <ul class="pagination">
-              <li class="page-item page-link">
-                <% if (page != lastPage) { %>
-                <a href="<%= pagination.nextUrl %>">
-                  <% }%>
-                Adelante ></li></a>
-              <li class="page-item page-link"><a href="<%= pagination.lastUrl %>">Ultima Pagina</a></li>
-            </ul>
 
-        </div>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item page-link"><a href="<%= pagination.firstUrl %>">Primera Pagina</a></li>
+            <li class="page-item page-link">
+              <% if (page != "0" && (page)) { %>
+              <a href="<%= pagination.prevUrl %>">
+                <% }%>
+                 < Atras</li></a>
 
+                 
+
+                 <% for (let i = 0 ; i <= lastPage ; ++i) { %>
+                  <% if( page == i){ %>
+
+                    <li class="page-item active"><a class="page-link" href="?page=<%= i %>" > <%= i +1  %></a></li>
+                  <% } else { %>
+                    <li class="page-item"><a class="page-link" href="?page=<%= i %>" > <%= i +1  %></a></li>
+                    <% } %> 
+                  
+                  <%  } %>
+
+            <li class="page-item page-link">
+              <% if (page != lastPage) { %>
+              <a href="<%= pagination.nextUrl %>">
+                <% }%>
+              Adelante ></li></a>
+            <li class="page-item page-link"><a href="<%= pagination.lastUrl %>">Ultima Pagina</a></li>
+          </ul>
+        </nav>
+      </div>
+
+     
+      
 
   </div>
   <!-- /.container -->

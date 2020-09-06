@@ -13,7 +13,7 @@ const bcrypt = require('bcrypt');
 
 userControllers = {
 
-    login: function (req, res) {
+    login: function (req, res, next ) {
 
 
 
@@ -68,7 +68,7 @@ userControllers = {
                     res.redirect("/")
                 
             } 
-                    else {
+            else {
                         res.render('users/login', {
                         errors: [{
                             msg: 'El correo o contraseña es invalido'
@@ -116,7 +116,7 @@ userControllers = {
 
 
 
-    register: function (req, res) {
+    register: function (req, res, next) {
 
 
         res.render('users/register', {
@@ -125,7 +125,7 @@ userControllers = {
         })
     },
 
-    create: function (req, res) {
+    create: function (req, res, next) {
         let password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
         let errors = (validationResult(req));
         
@@ -192,7 +192,6 @@ userControllers = {
 
         res.redirect("/")
     },
-
     api : function(req, res){
         db.users.findAll()
         .then(function(allUsers){
@@ -209,3 +208,10 @@ userControllers = {
 
 
 module.exports = userControllers;
+
+
+
+
+
+
+
