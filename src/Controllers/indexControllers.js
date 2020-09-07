@@ -68,13 +68,9 @@ controllerIndex = {
           category : req.query.categoria
         }
       }).then(function (products) {
-<<<<<<< HEAD
-        
-=======
 
         let lastPage = Math.ceil(products.count / 12 -1)
 
->>>>>>> c42d4909c18d43c85d58cdabea02f0eb02ee9e0d
         res.render('index/indexFiltrados', {
           products: products.rows,
           pagination: {
