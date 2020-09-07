@@ -124,3 +124,7 @@ body {
 .mtop {
   margin-top: .6rem;
 }
+
+.d-flex justify-content pl-5 {
+  padding-left: 4rem!important
+}

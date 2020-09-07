@@ -17,7 +17,13 @@ body {
   text-align: center;
   
 }
-
+#bienvenida2 {
+  font-family: 'Bangers', cursive;
+  font-size: 32px;  
+  /* background-color: black; */
+  text-align: center;
+  
+}
 @media (max-width: 426px) {
   .onlyMobilePadT{
     padding-top: 1rem;
