@@ -1,9 +1,9 @@
 <% if (oferta == "on")  { %> 
 
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center small_txt smaller_txt smallest_txt">
     <nav aria-label="Page navigation example">
       <ul class="pagination">
-        <li class="page-item page-link"><a href="<%= pagination.firstUrl %>">Primera Pagina</a></li>
+        <li class="page-item page-link"><a href="<%= pagination.firstUrl %>"><<</a></li>
         <li class="page-item page-link">
           <% if (page != "0" && (page)) { %>
           <a href="<%= pagination.prevUrl %>">
@@ -26,8 +26,8 @@
           <% if (page != lastPage) { %>
           <a href="<%= pagination.nextUrl %>">
             <% }%>
-          Adelante ></li></a>
-        <li class="page-item page-link"><a href="<%= pagination.lastUrl %>">Ultima Pagina</a></li>
+          Siguiente ></li></a>
+        <li class="page-item page-link"><a href="<%= pagination.lastUrl %>">>></a></li>
       </ul>
     </nav>
   </div>
@@ -40,10 +40,10 @@
 
   <% if (cat == "videoJuegos")  { %> 
 
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center small_txt smaller_txt smallest_txt">
         <nav aria-label="Page navigation example">
           <ul class="pagination">
-            <li class="page-item page-link"><a href="<%= pagination.firstUrl %>">Primera Pagina</a></li>
+            <li class="page-item page-link"><a href="<%= pagination.firstUrl %>"><<</a></li>
             <li class="page-item page-link">
               <% if (page != "0" && (page)) { %>
               <a href="<%= pagination.prevUrl %>">
@@ -66,8 +66,8 @@
               <% if (page != lastPage) { %>
               <a href="<%= pagination.nextUrl %>">
                 <% }%>
-              Adelante ></li></a>
-            <li class="page-item page-link"><a href="<%= pagination.lastUrl %>">Ultima Pagina</a></li>
+              Siguiente ></li></a>
+            <li class="page-item page-link"><a href="<%= pagination.lastUrl %>">>></a></li>
           </ul>
         </nav>
       </div>
@@ -78,10 +78,10 @@
 
       <% if (cat == "comics")  { %> 
 
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center small_txt smaller_txt smallest_txt">
             <nav aria-label="Page navigation example">
               <ul class="pagination">
-                <li class="page-item page-link"><a href="<%= pagination.firstUrl %>">Primera Pagina</a></li>
+                <li class="page-item page-link"><a href="<%= pagination.firstUrl %>"><<</a></li>
                 <li class="page-item page-link">
                   <% if (page != "0" && (page)) { %>
                   <a href="<%= pagination.prevUrl %>">
@@ -104,8 +104,8 @@
                   <% if (page != lastPage) { %>
                   <a href="<%= pagination.nextUrl %>">
                     <% }%>
-                  Adelante ></li></a>
-                <li class="page-item page-link"><a href="<%= pagination.lastUrl %>">Ultima Pagina</a></li>
+                  Siguiente ></li></a>
+                <li class="page-item page-link"><a href="<%= pagination.lastUrl %>">>></a></li>
               </ul>
             </nav>
           </div>
@@ -115,10 +115,10 @@
 
           <% if (cat == "juegosDeMesa")  { %> 
 
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center small_txt smaller_txt smallest_txt">
                 <nav aria-label="Page navigation example">
                   <ul class="pagination">
-                    <li class="page-item page-link"><a href="<%= pagination.firstUrl %>">Primera Pagina</a></li>
+                    <li class="page-item page-link"><a href="<%= pagination.firstUrl %>"><<</a></li>
                     <li class="page-item page-link">
                       <% if (page != "0" && (page)) { %>
                       <a href="<%= pagination.prevUrl %>">
@@ -141,8 +141,8 @@
                       <% if (page != lastPage) { %>
                       <a href="<%= pagination.nextUrl %>">
                         <% }%>
-                      Adelante ></li></a>
-                    <li class="page-item page-link"><a href="<%= pagination.lastUrl %>">Ultima Pagina</a></li>
+                      Siguiente ></li></a>
+                    <li class="page-item page-link"><a href="<%= pagination.lastUrl %>">>></a></li>
                   </ul>
                 </nav>
               </div>

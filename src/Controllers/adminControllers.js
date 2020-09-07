@@ -151,17 +151,27 @@ console.log(req.files)
 
         if (errors.isEmpty()) {
 
-            
-            db.products.create({
+            let product = {
                 name: req.body.name,
                 price: req.body.price,
                 description: req.body.description,
-                image: req.files[0].filename,
-                imagetwo: req.files[1].filename,
                 category: req.body.category,
                 offer: req.body.offer,
                 newprice: req.body.newprice
-            })
+            }
+
+            if (req.files[0] != undefined) {
+                product.image = req.files[0].filename
+
+            }
+            if (req.files[1] != undefined) {
+                product.imagetwo = req.files[1].filename
+
+            }
+
+            
+            db.products.create(product)
+
         } else {
             res.render('admin/productsAlta', {
                 usuario: req.session.usuario,
