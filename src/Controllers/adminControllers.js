@@ -19,17 +19,30 @@ adminControllers = {
 
         usuarioPedido = ""
 
-        /*  res.render('admin/adminProducts', {
-             productos: archivo
-         }) */
-
-        db.products.findAll()
+        if(req.query.producto == "" || req.query.producto == undefined){
+            db.products.findAll()
             .then(function (productos) {
                 res.render('admin/adminProducts', {
                     productos: productos,
                     toThousand
                 })
             })
+            
+        }else {
+            db.products.findAll({
+                where : {
+                    name : {[db.Sequelize.Op.substring] : req.query.producto}
+                }
+            })
+            .then(function (productos) {
+                res.render('admin/adminProducts', {
+                    productos: productos,
+                    toThousand
+                })
+            })
+        }
+
+        
 
 
     },
@@ -127,23 +140,7 @@ adminControllers = {
 
     store: function (req, res, next) {
 
-        /* let nuevoProducto = req.body
-
-        nuevoProducto.id = archivo.length + 1
-
-        let nuevo = archivo.length + 1
-
-        console.log(req.files)
-
-        nuevoProducto.image = "/" + req.body.category + "/" + req.files[0].filename
-
-console.log(req.files)
-        archivo.push(nuevoProducto)
-
-        fs.writeFileSync(productsFilePath, JSON.stringify(archivo, null, 4))
-
-
-        res.redirect("/") */
+       
 
 
         var errors = validationResult(req)

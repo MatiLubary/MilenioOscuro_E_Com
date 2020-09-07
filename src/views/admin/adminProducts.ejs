@@ -43,7 +43,21 @@
         <thead>
             <tr>
                 <th scope="col">id</th>
-                <th scope="col">Nombre</th>
+                <form action="/admin">
+                <th scope="col" style="width: 23%;">Nombre<div  class="input-group " style="width: 211px;display: inline-flex;margin-left:22px; ">
+        
+                    <input type="text" class="form-control " placeholder="Filtrar por nombre" style="height: 28px;"  name="producto" id="">
+        
+                    <div class="input-group-append">
+                         <span id="anchoSearch"
+                            class="input-group-text d-flex justify-content-center align-items-center">
+                            <button type="submit" style="all: unset; cursor: pointer;"> <i style="font-size: 14px;" class="fas fa-search d-flex justify-content-center align-items-center"></i></button>
+                        </span>
+                    </div>
+        
+                
+                </div>  </th>
+            </form>
                 <th scope="col">Precio</th>
                 <th scope="col">Oferta</th>
                 <th scope="col">Precio oferta</th>
